@@ -327,11 +327,4 @@ function setLang(l){
   document.getElementById('btn-es').classList.toggle('active', l==='es');
   document.getElementById('btn-en').classList.toggle('active', l==='en');
   try{localStorage.setItem('lang', l);}catch(e){}
-  document.querySelectorAll('.boletin button[data-es]').forEach(b=>b.style.display = l==='es' ? '' : 'none');
-  document.querySelectorAll('.boletin button[data-en]').forEach(b=>b.style.display = l==='en' ? '' : 'none');
-}
-try{ var saved = localStorage.getItem('lang'); if(saved==='en') setLang('en'); }catch(e){}
-</script>
-
-</body>
-</html>
+  document.querySelectorAll('.boletin button[data-es]').forEach(b=>b.sty
