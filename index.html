@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA en el Aula | AI in the Classroom — Boletín semanal para profesores universitarios</title>
+<meta name="description" content="Artículos y estudios semanales sobre la aplicación de la inteligencia artificial en el salón de clases universitario. Weekly articles and studies on AI in the university classroom.">
+<meta property="og:title" content="IA en el Aula | AI in the Classroom">
+<meta property="og:description" content="Boletín semanal de artículos y estudios sobre IA en la docencia universitaria.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --azul:#1b3a5c; --azul-claro:#2e5f8a; --dorado:#c9a227; --crema:#faf7f0;
+    --gris:#4a4a4a; --gris-claro:#e8e4da; --blanco:#ffffff; --verde:#2e6e4e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--gris);background:var(--crema);line-height:1.65}
+  .sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif}
+
+  header{background:var(--azul);color:var(--blanco);padding:0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:.6rem 1.2rem;font-size:.85rem}
+  .topbar .edition{font-family:'Segoe UI',sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#d8e2ee}
+  .lang-toggle button{background:transparent;border:1px solid #7d9bb8;color:#d8e2ee;padding:.25rem .7rem;cursor:pointer;font-size:.8rem;font-family:'Segoe UI',sans-serif}
+  .lang-toggle button.active{background:var(--dorado);border-color:var(--dorado);color:var(--azul);font-weight:700}
+  .masthead{text-align:center;padding:1.6rem 1rem 1.2rem;border-top:1px solid #33547a;border-bottom:3px solid var(--dorado)}
+  .masthead h1{font-size:2.4rem;letter-spacing:.02em;font-weight:400}
+  .masthead h1 b{color:var(--dorado)}
+  .masthead p{color:#c7d5e4;font-style:italic;margin-top:.35rem;font-size:1.02rem}
+
+  nav{background:var(--azul-claro)}
+  nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto}
+  nav a{display:block;color:#eaf1f8;text-decoration:none;padding:.65rem 1rem;font-family:'Segoe UI',sans-serif;font-size:.88rem;letter-spacing:.03em}
+  nav a:hover{background:var(--azul)}
+
+  main{max-width:1100px;margin:0 auto;padding:2rem 1.2rem}
+  section{margin-bottom:3rem}
+  h2{font-size:1.55rem;color:var(--azul);border-bottom:2px solid var(--dorado);padding-bottom:.35rem;margin-bottom:1.2rem;font-weight:400}
+  h3{color:var(--azul);font-size:1.12rem;margin-bottom:.4rem}
+
+  .hero{background:var(--blanco);border:1px solid var(--gris-claro);border-left:5px solid var(--dorado);padding:1.6rem 1.8rem;margin-bottom:2.4rem}
+  .hero .kicker{font-family:'Segoe UI',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:700}
+  .hero h2{border:none;font-size:1.8rem;margin:.3rem 0 .6rem;padding:0}
+  .hero p{margin-bottom:.8rem}
+  .tag{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;background:var(--azul);color:#fff;padding:.15rem .55rem;border-radius:2px;margin-right:.4rem;margin-bottom:.4rem}
+  .tag.verde{background:var(--verde)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+  .card{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.3rem 1.4rem;display:flex;flex-direction:column}
+  .card .meta{font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#8a8a8a;margin-bottom:.5rem}
+  .card p{font-size:.95rem;flex-grow:1}
+  .card a.leer{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:var(--azul-claro);text-decoration:none;font-weight:600;margin-top:.8rem}
+  .card a.leer:hover{color:var(--dorado)}
+
+  .nivel{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+  .nivel .card{border-top:4px solid var(--azul-claro)}
+  .nivel .card:nth-child(2){border-top-color:var(--dorado)}
+  .nivel .card:nth-child(3){border-top-color:var(--verde)}
+  .nivel ul{padding-left:1.1rem;font-size:.92rem;margin-top:.4rem}
+  .nivel li{margin-bottom:.35rem}
+
+  .recursos ul{list-style:none}
+  .recursos li{background:var(--blanco);border:1px solid var(--gris-claro);padding:.9rem 1.2rem;margin-bottom:.6rem}
+  .recursos li b{color:var(--azul)}
+  .recursos li span.prox{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dorado);font-weight:700}
+
+  .boletin{background:var(--azul);color:#eaf1f8;padding:2rem;text-align:center}
+  .boletin h2{color:#fff;border-color:var(--dorado)}
+  .boletin form{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .boletin input{padding:.6rem .9rem;border:none;min-width:260px;font-size:.95rem}
+  .boletin button{background:var(--dorado);border:none;color:var(--azul);font-weight:700;padding:.6rem 1.4rem;cursor:pointer;font-family:'Segoe UI',sans-serif}
+
+  .acerca{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.6rem 1.8rem}
+
+  footer{background:#12283f;color:#9db4ca;text-align:center;padding:1.6rem 1rem;font-size:.85rem;font-family:'Segoe UI',sans-serif}
+  footer a{color:var(--dorado);text-decoration:none}
+
+  [data-en]{display:none}
+  html.en [data-es]{display:none}
+  html.en [data-en]{display:revert}
+
+  @media(max-width:600px){.masthead h1{font-size:1.6rem}.hero h2{font-size:1.35rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <span class="edition" id="edicion">
+      <span data-es>Edición No. 1 · Semana del 13 de julio de 2026</span>
+      <span data-en>Issue No. 1 · Week of July 13, 2026</span>
+    </span>
+    <span class="lang-toggle">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </span>
+  </div>
+  <div class="masthead">
+    <h1><span data-es>IA en el <b>Aula</b></span><span data-en>AI in the <b>Classroom</b></span></h1>
+    <p data-es>Artículos y estudios semanales sobre inteligencia artificial en la docencia universitaria</p>
+    <p data-en>Weekly articles and studies on artificial intelligence in university teaching</p>
+  </div>
+  <nav class="sans">
+    <ul>
+      <li><a href="#destacado"><span data-es>Inicio</span><span data-en>Home</span></a></li>
+      <li><a href="#articulos"><span data-es>Artículos</span><span data-en>Articles</span></a></li>
+      <li><a href="#niveles"><span data-es>Guías por nivel</span><span data-en>Adoption Guides</span></a></li>
+      <li><a href="#recursos"><span data-es>Recursos</span><span data-en>Resources</span></a></li>
+      <li><a href="#politicas"><span data-es>Políticas</span><span data-en>Policies</span></a></li>
+      <li><a href="#boletin"><span data-es>Boletín</span><span data-en>Newsletter</span></a></li>
+      <li><a href="#acerca"><span data-es>Acerca de</span><span data-en>About</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ARTÍCULO DESTACADO -->
+  <section id="destacado">
+    <div class="hero">
+      <span class="kicker" data-es>Artículo destacado de la semana</span>
+      <span class="kicker" data-en>Featured article of the week</span>
+      <h2 data-es>La evidencia de 2026: la IA mejora el aprendizaje, pero solo con diseño pedagógico deliberado</h2>
+      <h2 data-en>The 2026 Evidence: AI Improves Learning, but Only with Deliberate Pedagogical Design</h2>
+      <p data-es>Los datos más recientes muestran una adopción sin precedentes: aproximadamente el 86% de los estudiantes universitarios usa IA como su principal herramienta de investigación, y cerca del 60% del profesorado la integra en su enseñanza. Un estudio de Harvard en física (2025) encontró que estudiantes con tutores de IA aprendieron más del doble en menos tiempo que sus pares en aulas de aprendizaje activo tradicional. Sin embargo, la misma literatura advierte: el 70% de los docentes teme un debilitamiento del pensamiento crítico, y las revisiones sistemáticas reportan evidencia mixta cuando la IA se adopta sin diseño instruccional intencional. La conclusión convergente es que el efecto de la IA depende menos de la herramienta y más del diseño de la actividad de aprendizaje.</p>
+      <p data-en>The latest data show unprecedented adoption: roughly 86% of university students use AI as their primary research tool, and about 60% of faculty integrate it into their teaching. A 2025 Harvard physics study found that students with AI tutors learned more than twice as much in less time than peers in traditional active-learning classrooms. Yet the same literature warns: 70% of instructors fear weakened critical thinking, and systematic reviews report mixed evidence when AI is adopted without intentional instructional design. The converging conclusion: AI's effect depends less on the tool and more on the design of the learning activity.</p>
+      <span class="tag" data-es>Evidencia empírica</span><span class="tag" data-en>Empirical evidence</span>
+      <span class="tag verde" data-es>Estrategias pedagógicas</span><span class="tag verde" data-en>Teaching strategies</span>
+      <p style="margin-top:.8rem"><a class="leer sans" href="https://www.facultyfocus.com/articles/teaching-with-technology-articles/designing-the-2026-classroom-emerging-learning-trends-in-an-ai-powered-education-system/" target="_blank" rel="noopener"><span data-es>Leer el análisis en Faculty Focus →</span><span data-en>Read the analysis at Faculty Focus →</span></a></p>
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS DE LA SEMANA -->
+  <section id="articulos">
+    <h2 data-es>Artículos y estudios de esta semana</h2>
+    <h2 data-en>This Week's Articles and Studies</h2>
+    <div class="grid">
+
+      <article class="card">
+        <span class="meta sans" data-es>Revisión sistemática · SAGE, 2026</span>
+        <span class="meta sans" data-en>Systematic review · SAGE, 2026</span>
+        <h3 data-es>IA generativa y resultados de aprendizaje: ¿qué dice la evidencia acumulada?</h3>
+        <h3 data-en>Generative AI and Learning Outcomes: What Does the Accumulated Evidence Say?</h3>
+        <p data-es>Revisión sistemática de los efectos de la IA generativa sobre resultados de aprendizaje y desempeño académico. Evidencia mixta: mejoras en engagement y desempeño en algunos contextos, pero riesgo de dependencia excesiva y efectividad variable entre disciplinas.</p>
+        <p data-en>Systematic review of generative AI's effects on learning outcomes and academic performance. Mixed evidence: gains in engagement and performance in some contexts, but risk of over-reliance and variable effectiveness across disciplines.</p>
+        <a class="leer" href="https://journals.sagepub.com/doi/10.1177/00472395251400089" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Metaanálisis · Educational Research Review</span>
+        <span class="meta sans" data-en>Meta-analysis · Educational Research Review</span>
+        <h3 data-es>Efecto de la IA generativa sobre los resultados de aprendizaje universitario</h3>
+        <h3 data-en>Effect of Generative AI on University Students' Learning Outcomes</h3>
+        <p data-es>Metaanálisis que cuantifica el efecto de la IA generativa en estudiantes universitarios. Lectura esencial para fundamentar decisiones curriculares con evidencia agregada en lugar de estudios aislados.</p>
+        <p data-en>Meta-analysis quantifying generative AI's effect on university students. Essential reading for grounding curricular decisions in aggregated evidence rather than isolated studies.</p>
+        <a class="leer" href="https://www.sciencedirect.com/science/article/abs/pii/S1747938X25000740" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Estudio cualitativo · Studies in Higher Education</span>
+        <span class="meta sans" data-en>Qualitative study · Studies in Higher Education</span>
+        <h3 data-es>Navegando la incertidumbre: experiencias del profesorado con la IA generativa</h3>
+        <h3 data-en>Navigating Uncertainty: Faculty Experiences with Generative AI</h3>
+        <p data-es>Cómo perciben y experimentan los docentes universitarios la llegada de la IA generativa a su práctica. Útil para decanos y comités que diseñan programas de desarrollo profesional docente.</p>
+        <p data-en>How university teachers perceive and experience the arrival of generative AI in their practice. Useful for deans and committees designing faculty development programs.</p>
+        <a class="leer" href="https://www.tandfonline.com/doi/full/10.1080/03075079.2025.2550766" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Encuesta a gran escala · 72,615 estudiantes</span>
+        <span class="meta sans" data-en>Large-scale survey · 72,615 students</span>
+        <h3 data-es>¿Cuándo mejora la IA generativa el compromiso del estudiante universitario?</h3>
+        <h3 data-en>When Does Generative AI Improve College Student Engagement?</h3>
+        <p data-es>Encuesta en 25 universidades: el uso académico de IA se asocia con mayor compromiso cognitivo y emocional, pero puede reducir el aprendizaje activo y la motivación si sustituye —en lugar de acompañar— el esfuerzo del estudiante.</p>
+        <p data-en>Survey across 25 universities: academic AI use is associated with greater cognitive and emotional engagement, but may reduce active learning and motivation when it replaces—rather than supports—student effort.</p>
+        <a class="leer" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12382942/" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Número monográfico · RIED, 2026 (en español)</span>
+        <span class="meta sans" data-en>Special issue · RIED, 2026 (in Spanish)</span>
+        <h3 data-es>RIED: Inteligencia artificial en la educación superior — diseño, competencias, evaluación y desafíos</h3>
+        <h3 data-en>RIED: AI in Higher Education — Design, Competencies, Assessment, and Challenges</h3>
+        <p data-es>La Revista Iberoamericana de Educación a Distancia dedica su Vol. 29(1) a la IA en educación superior, con artículos sobre ética, diseño pedagógico y desarrollo de competencias en el contexto iberoamericano.</p>
+        <p data-en>The Ibero-American Journal of Distance Education devotes Vol. 29(1) to AI in higher education, with articles on ethics, pedagogical design, and competency development in the Ibero-American context.</p>
+        <a class="leer" href="https://revistas.uned.es/index.php/ried/issue/view/2062" target="_blank" rel="noopener"><span data-es>Leer número completo →</span><span data-en>Read full issue →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Informe global · Digital Education Council, 2026</span>
+        <span class="meta sans" data-en>Global report · Digital Education Council, 2026</span>
+        <h3 data-es>Encuesta global 2026 sobre IA en la educación superior</h3>
+        <h3 data-en>2026 Global Survey on AI in Higher Education</h3>
+        <p data-es>Panorama mundial de adopción institucional de IA: prácticas docentes, brechas de capacitación y prioridades estratégicas. Referencia comparativa para la planificación institucional.</p>
+        <p data-en>Global picture of institutional AI adoption: teaching practices, training gaps, and strategic priorities. A comparative reference for institutional planning.</p>
+        <a class="leer" href="https://www.digitaleducationcouncil.com/resource-library-items/ai-in-higher-education-global-survey-2026" target="_blank" rel="noopener"><span data-es>Leer informe →</span><span data-en>Read report →</span></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- GUÍAS POR NIVEL -->
+  <section id="niveles">
+    <h2 data-es>Guías por nivel de adopción</h2>
+    <h2 data-en>Guides by Adoption Level</h2>
+    <div class="nivel">
+      <div class="card">
+        <h3 data-es>🌱 Principiante — Empiece aquí</h3>
+        <h3 data-en>🌱 Beginner — Start Here</h3>
+        <ul>
+          <li data-es>Pruebe una herramienta de IA con una tarea propia (redactar un objetivo de aprendizaje, resumir un artículo) antes de usarla con estudiantes.</li>
+          <li data-en>Try an AI tool on your own task (drafting a learning objective, summarizing an article) before using it with students.</li>
+          <li data-es>Añada una cláusula de IA a su prontuario: qué se permite, qué no, y cómo divulgar su uso.</li>
+          <li data-en>Add an AI clause to your syllabus: what is allowed, what is not, and how to disclose use.</li>
+          <li data-es>No confíe en los detectores de IA como prueba única de deshonestidad académica.</li>
+          <li data-en>Do not rely on AI detectors as sole proof of academic dishonesty.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌿 Intermedio — Integre con propósito</h3>
+        <h3 data-en>🌿 Intermediate — Integrate with Purpose</h3>
+        <ul>
+          <li data-es>Rediseñe una evaluación para que la IA sea insumo, no sustituto: análisis de resultados generados por IA, crítica de borradores, defensa oral.</li>
+          <li data-en>Redesign one assessment so AI is an input, not a substitute: analyzing AI-generated output, critiquing drafts, oral defense.</li>
+          <li data-es>Use marcos como PICRAT o PAIR para clasificar el rol de la IA en cada actividad.</li>
+          <li data-en>Use frameworks like PICRAT or PAIR to classify AI's role in each activity.</li>
+          <li data-es>Alinee cada uso de IA con un objetivo de la taxonomía de Bloom.</li>
+          <li data-en>Align each AI use with a Bloom's taxonomy objective.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌳 Avanzado — Lidere el cambio</h3>
+        <h3 data-en>🌳 Advanced — Lead the Change</h3>
+        <ul>
+          <li data-es>Diseñe evaluaciones resilientes a la IA basadas en proceso, contexto local y juicio profesional.</li>
+          <li data-en>Design AI-resilient, process-based assessments rooted in local context and professional judgment.</li>
+          <li data-es>Contribuya a la política institucional de IA y a marcos de alfabetización en IA para su facultad.</li>
+          <li data-en>Contribute to institutional AI policy and AI literacy frameworks for your college.</li>
+          <li data-es>Documente y publique sus resultados: la evidencia disciplinar aún es escasa.</li>
+          <li data-en>Document and publish your results: discipline-specific evidence remains scarce.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos" class="recursos">
+    <h2 data-es>Recursos para el docente</h2>
+    <h2 data-en>Faculty Resources</h2>
+    <ul>
+      <li>
+        <b data-es>Guías de declaraciones de IA para el prontuario (2026)</b>
+        <b data-en>AI syllabus statement guides (2026)</b> —
+        <span data-es>Ejemplos y lenguaje modelo de políticas de curso: </span>
+        <span data-en>Examples and model course-policy language: </span>
+        <a href="https://genai.umich.edu/resources/faculty/course-policies" target="_blank" rel="noopener">University of Michigan</a> ·
+        <a href="https://teaching.cornell.edu/generative-artificial-intelligence/ai-academic-integrity" target="_blank" rel="noopener">Cornell CTI</a> ·
+        <a href="https://oaisc.fas.harvard.edu/academic-integrity-and-teaching-without-ai/" target="_blank" rel="noopener">Harvard OAISC</a>
+      </li>
+      <li>
+        <b data-es>Guía sobre IA e integridad académica</b>
+        <b data-en>AI and academic integrity guidance</b> —
+        <a href="https://www.buffalo.edu/academic-integrity/instructors/protect/ai-guidance.html" target="_blank" rel="noopener">University at Buffalo</a> ·
+        <a href="https://guides.lib.jmu.edu/AI-in-education/integrity" target="_blank" rel="noopener">James Madison University</a>
+      </li>
+      <li>
+        <span class="prox" data-es>Próximamente</span><span class="prox" data-en>Coming soon</span> —
+        <span data-es>Plantilla descargable de cláusulas de IA para prontuarios PUCPR, rúbrica de uso responsable de IA y guía de prompts para docentes.</span>
+        <span data-en>Downloadable AI syllabus clause template, responsible-AI-use rubric, and a prompt guide for faculty.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- POLÍTICAS -->
+  <section id="politicas">
+    <h2 data-es>Políticas y marcos institucionales</h2>
+    <h2 data-en>Policies and Institutional Frameworks</h2>
+    <div class="acerca">
+      <p data-es><b>Tendencia de 2026:</b> el cambio dominante en las políticas universitarias es pasar de «la IA está prohibida» a «el uso no divulgado de IA constituye una violación». La divulgación se ha convertido en el mecanismo central de gobernanza. Las mejores prácticas actuales recomiendan: (1) reglas claras en el prontuario, (2) definición de uso permitido y prohibido por tipo de tarea, (3) atribución obligatoria cuando se permite, y (4) tratar las puntuaciones de los detectores como indicios para revisión humana, nunca como prueba concluyente.</p>
+      <p data-en><b>2026 trend:</b> the dominant shift in university policy is from "AI is prohibited" to "undisclosed AI use is a violation." Disclosure has become the central governance mechanism. Current best practice recommends: (1) clear syllabus rules, (2) permitted and prohibited uses defined per assignment type, (3) mandatory attribution when allowed, and (4) treating detector scores as prompts for human review, never as conclusive proof.</p>
+      <p style="margin-top:.7rem"><a class="leer sans" href="https://www.trinka.ai/blog/how-faculty-should-write-ai-syllabus-statements-for-2026/" target="_blank" rel="noopener"><span data-es>Cómo redactar declaraciones de IA para el prontuario en 2026 →</span><span data-en>How faculty should write AI syllabus statements for 2026 →</span></a></p>
+    </div>
+  </section>
+
+  <!-- BOLETÍN -->
+  <section id="boletin" class="boletin">
+    <h2 data-es>Reciba la edición semanal</h2>
+    <h2 data-en>Get the Weekly Issue</h2>
+    <p data-es>Una edición nueva cada semana con los artículos y estudios más pertinentes para su docencia.</p>
+    <p data-en>A new issue every week with the most relevant articles and studies for your teaching.</p>
+    <form action="mailto:edrodrios@pucpr.edu" method="post" enctype="text/plain" class="sans">
+      <input type="email" name="email" placeholder="su.correo@universidad.edu" required>
+      <button type="submit" data-es>Suscribirme</button>
+      <button type="submit" data-en style="display:none">Subscribe</button>
+    </form>
+    <p class="sans" style="font-size:.75rem;margin-top:.7rem;color:#9db4ca">
+      <span data-es>Nota: este formulario abre su cliente de correo. Para suscripción automatizada, considere integrar Mailchimp o Buttondown.</span>
+      <span data-en>Note: this form opens your email client. For automated subscriptions, consider integrating Mailchimp or Buttondown.</span>
+    </p>
+  </section>
+
+  <!-- ACERCA -->
+  <section id="acerca">
+    <h2 data-es>Acerca de este sitio</h2>
+    <h2 data-en>About This Site</h2>
+    <div class="acerca">
+      <p data-es><b>IA en el Aula</b> es un boletín semanal curado por el Dr. Edgar Rodríguez, Decano del Colegio de Administración de Empresas de la Pontificia Universidad Católica de Puerto Rico y profesor de economía, estadística y métodos de investigación desde 1996. Su misión es acercar al profesorado universitario la mejor evidencia disponible sobre la integración de la inteligencia artificial en la enseñanza, con rigor académico y aplicabilidad práctica.</p>
+      <p data-en><b>AI in the Classroom</b> is a weekly digest curated by Dr. Edgar Rodríguez, Dean of the College of Business Administration at the Pontificia Universidad Católica de Puerto Rico and professor of economics, statistics, and research methods since 1996. Its mission is to bring university faculty the best available evidence on integrating artificial intelligence into teaching, with academic rigor and practical applicability.</p>
+      <p style="margin-top:.7rem" data-es><b>Contacto y colaboraciones:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — se aceptan propuestas de artículos invitados, casos docentes y solicitudes de talleres.</p>
+      <p style="margin-top:.7rem" data-en><b>Contact and collaborations:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — guest article proposals, teaching cases, and workshop requests are welcome.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><span data-es>© 2026 IA en el Aula · Publicación semanal · Ponce, Puerto Rico</span><span data-en>© 2026 AI in the Classroom · Weekly publication · Ponce, Puerto Rico</span></p>
+  <p style="margin-top:.3rem"><span data-es>Archivo de ediciones anteriores disponible próximamente.</span><span data-en>Archive of past issues coming soon.</span></p>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.className = l === 'en' ? 'en' : '';
+  document.documentElement.lang = l;
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  try{localStorage.setItem('lang', l);}catch(e){}
+  document.querySelectorAll('.boletin button[data-es]').forEach(b=>b.style.display = l==='es' ? '' : 'none');
+  document.querySelectorAll('.boletin button[data-en]').forEach(b=>b.style.display = l==='en' ? '' : 'none');
+}
+try{ var saved = localStorage.getItem('lang'); if(saved==='en') setLang('en'); }catch(e){}
+</script>
+
+</body>
+</html>
