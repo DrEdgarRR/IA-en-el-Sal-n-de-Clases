@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Inteligencia Artificial en el Salón de Clases | AI in the Classroom — Boletín semanal para profesores universitarios</title>
+<meta name="description" content="Artículos y estudios semanales sobre la aplicación de la inteligencia artificial en el salón de clases universitario. Weekly articles and studies on AI in the university classroom.">
+<meta property="og:title" content="La Inteligencia Artificial en el Salón de Clases | AI in the Classroom">
+<meta property="og:description" content="Boletín semanal de artículos y estudios sobre IA en la docencia universitaria.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --azul:#1b3a5c; --azul-claro:#2e5f8a; --dorado:#c9a227; --crema:#faf7f0;
+    --gris:#4a4a4a; --gris-claro:#e8e4da; --blanco:#ffffff; --verde:#2e6e4e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--gris);background:var(--crema);line-height:1.65}
+  .sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif}
+
+  header{background:var(--azul);color:var(--blanco);padding:0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:.6rem 1.2rem;font-size:.85rem}
+  .topbar .edition{font-family:'Segoe UI',sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#d8e2ee}
+  .lang-toggle button{background:transparent;border:1px solid #7d9bb8;color:#d8e2ee;padding:.25rem .7rem;cursor:pointer;font-size:.8rem;font-family:'Segoe UI',sans-serif}
+  .lang-toggle button.active{background:var(--dorado);border-color:var(--dorado);color:var(--azul);font-weight:700}
+  .masthead{text-align:center;padding:1.6rem 1rem 1.2rem;border-top:1px solid #33547a;border-bottom:3px solid var(--dorado)}
+  .masthead h1{font-size:2.4rem;letter-spacing:.02em;font-weight:400}
+  .masthead h1 b{color:var(--dorado)}
+  .masthead p{color:#c7d5e4;font-style:italic;margin-top:.35rem;font-size:1.02rem}
+
+  nav{background:var(--azul-claro)}
+  nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto}
+  nav a{display:block;color:#eaf1f8;text-decoration:none;padding:.65rem 1rem;font-family:'Segoe UI',sans-serif;font-size:.88rem;letter-spacing:.03em}
+  nav a:hover{background:var(--azul)}
+
+  main{max-width:1100px;margin:0 auto;padding:2rem 1.2rem}
+  section{margin-bottom:3rem}
+  h2{font-size:1.55rem;color:var(--azul);border-bottom:2px solid var(--dorado);padding-bottom:.35rem;margin-bottom:1.2rem;font-weight:400}
+  h3{color:var(--azul);font-size:1.12rem;margin-bottom:.4rem}
+
+  .hero{background:var(--blanco);border:1px solid var(--gris-claro);border-left:5px solid var(--dorado);padding:1.6rem 1.8rem;margin-bottom:2.4rem}
+  .hero .kicker{font-family:'Segoe UI',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:700}
+  .hero h2{border:none;font-size:1.8rem;margin:.3rem 0 .6rem;padding:0}
+  .hero p{margin-bottom:.8rem}
+  .tag{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;background:var(--azul);color:#fff;padding:.15rem .55rem;border-radius:2px;margin-right:.4rem;margin-bottom:.4rem}
+  .tag.verde{background:var(--verde)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+  .card{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.3rem 1.4rem;display:flex;flex-direction:column}
+  .card .meta{font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#8a8a8a;margin-bottom:.5rem}
+  .card p{font-size:.95rem;flex-grow:1}
+  .card a.leer{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:var(--azul-claro);text-decoration:none;font-weight:600;margin-top:.8rem}
+  .card a.leer:hover{color:var(--dorado)}
+
+  .nivel{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+  .nivel .card{border-top:4px solid var(--azul-claro)}
+  .nivel .card:nth-child(2){border-top-color:var(--dorado)}
+  .nivel .card:nth-child(3){border-top-color:var(--verde)}
+  .nivel ul{padding-left:1.1rem;font-size:.92rem;margin-top:.4rem}
+  .nivel li{margin-bottom:.35rem}
+
+  .recursos ul{list-style:none}
+  .recursos li{background:var(--blanco);border:1px solid var(--gris-claro);padding:.9rem 1.2rem;margin-bottom:.6rem}
+  .recursos li b{color:var(--azul)}
+  .recursos li span.prox{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dorado);font-weight:700}
+
+  .boletin{background:var(--azul);color:#eaf1f8;padding:2rem;text-align:center}
+  .boletin h2{color:#fff;border-color:var(--dorado)}
+  .boletin form{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .boletin input{padding:.6rem .9rem;border:none;min-width:260px;font-size:.95rem}
+  .boletin button{background:var(--dorado);border:none;color:var(--azul);font-weight:700;padding:.6rem 1.4rem;cursor:pointer;font-family:'Segoe UI',sans-serif}
+
+  .acerca{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.6rem 1.8rem}
+
+  footer{background:#12283f;color:#9db4ca;text-align:center;padding:1.6rem 1rem;font-size:.85rem;font-family:'Segoe UI',sans-serif}
+  footer a{color:var(--dorado);text-decoration:none}
+
+  [data-en]{display:none}
+  html.en [data-es]{display:none}
+  html.en [data-en]{display:revert}
+
+  @media(max-width:600px){.masthead h1{font-size:1.6rem}.hero h2{font-size:1.35rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <span class="edition" id="edicion">
+      <span data-es>Edición No. 10 · Semana del 14 de septiembre de 2026</span>
+      <span data-en>Issue No. 10 · Week of September 14, 2026</span>
+    </span>
+    <span class="lang-toggle">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </span>
+  </div>
+  <div class="masthead">
+    <h1><span data-es>La Inteligencia Artificial en el <b>Salón de Clases</b></span><span data-en>AI in the <b>Classroom</b></span></h1>
+    <p data-es>Artículos y estudios semanales sobre inteligencia artificial en la docencia universitaria</p>
+    <p data-en>Weekly articles and studies on artificial intelligence in university teaching</p>
+  </div>
+  <nav class="sans">
+    <ul>
+      <li><a href="#destacado"><span data-es>Inicio</span><span data-en>Home</span></a></li>
+      <li><a href="#articulos"><span data-es>Artículos</span><span data-en>Articles</span></a></li>
+      <li><a href="#niveles"><span data-es>Guías por nivel</span><span data-en>Adoption Guides</span></a></li>
+      <li><a href="#recursos"><span data-es>Recursos</span><span data-en>Resources</span></a></li>
+      <li><a href="#materiales"><span data-es>Materiales</span><span data-en>Materials</span></a></li>
+      <li><a href="#politicas"><span data-es>Políticas</span><span data-en>Policies</span></a></li>
+      <li><a href="#boletin"><span data-es>Boletín</span><span data-en>Newsletter</span></a></li>
+      <li><a href="#acerca"><span data-es>Acerca de</span><span data-en>About</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ARTÍCULO DESTACADO -->
+  <section id="destacado">
+    <div class="hero">
+      <span class="kicker" data-es>Artículo destacado de la semana</span>
+      <span class="kicker" data-en>Featured article of the week</span>
+      <h2 data-es>UNESCO IESALC: el 87% de las instituciones de América Latina y el Caribe ya usa IA — el estudio regional que faltaba</h2>
+      <h2 data-en>UNESCO IESALC: 87% of Latin American and Caribbean Institutions Now Use AI — The Missing Regional Study</h2>
+      <p data-es>Semana grande para nuestra región. Durante la Semana del Aprendizaje Digital de la UNESCO (París, 8-11 de septiembre, bajo el lema «La educación en la era de la IA: Hechos | Fricciones | Fronteras»), el Instituto Internacional para la Educación Superior en América Latina y el Caribe (IESALC) presentó el estudio regional que faltaba: con datos de 200 instituciones de educación superior en 19 países, documenta que el 87% ya utiliza IA en al menos una de sus áreas de actividad. La adopción en nuestra región no va detrás del mundo — va a su ritmo. En paralelo, más de 25 ministros de Educación adoptaron una Declaración Ministerial que exige que la integración de la IA se defina mediante gobernanza deliberativa, rendición de cuentas pública y respeto a los derechos de estudiantes y docentes: la educación como derecho humano y bien común también en la era de la IA. Esta edición examina ambos documentos junto con el debate de la semana — qué ganan y qué pierden los estudiantes cuando los chatbots asumen partes de la enseñanza — y estrena tres materiales nuevos: cláusulas por disciplina de negocios, rúbrica de alfabetización en IA (alineable con AACSB) y guía de prompts para diseño curricular y acreditación.</p>
+      <p data-en>A big week for our region. During UNESCO's Digital Learning Week (Paris, September 8-11, under the theme "Education in the AI era: Facts | Frictions | Frontiers"), the International Institute for Higher Education in Latin America and the Caribbean (IESALC) presented the regional study that was missing: with data from 200 higher education institutions across 19 countries, it documents that 87% already use AI in at least one area of activity. Our region's adoption is not trailing the world — it moves at its pace. In parallel, over 25 Education Ministers adopted a Ministerial Declaration demanding that AI integration be defined through deliberative governance, public accountability, and respect for student and teacher rights: education as a human right and common good in the AI era too. This issue examines both documents alongside the week's debate — what students gain and lose when chatbots take over parts of teaching — and launches three new materials: business-discipline AI clauses, an AI literacy rubric (AACSB-alignable), and a prompt guide for curriculum design and accreditation.</p>
+      <span class="tag" data-es>Estudio regional</span><span class="tag" data-en>Regional study</span>
+      <span class="tag verde" data-es>UNESCO · Latinoamérica</span><span class="tag verde" data-en>UNESCO · Latin America</span>
+      <p style="margin-top:.8rem"><a class="leer sans" href="https://ecuadoruniversitario.com/noticias-universitarias/nuevo-estudio-de-unesco-iesalc-revela-una-amplia-adopcion-de-la-ia-en-la-educacion-superior/" target="_blank" rel="noopener"><span data-es>Leer sobre el estudio IESALC →</span><span data-en>Read about the IESALC study →</span></a></p>
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS DE LA SEMANA -->
+  <section id="articulos">
+    <h2 data-es>Artículos y estudios de esta semana</h2>
+    <h2 data-en>This Week's Articles and Studies</h2>
+    <div class="grid">
+
+      <article class="card">
+        <span class="meta sans" data-es>Declaración internacional · UNESCO, 8 de septiembre de 2026 (en español)</span>
+        <span class="meta sans" data-en>International declaration · UNESCO, September 8, 2026 (in Spanish)</span>
+        <h3 data-es>La Declaración Ministerial: la educación como bien común en la era de la IA</h3>
+        <h3 data-en>The Ministerial Declaration: Education as a Common Good in the AI Era</h3>
+        <p data-es>Más de 25 ministros de Educación adoptaron en París una declaración conjunta con prioridades comunes: que las condiciones de integración de la IA en la educación se definan mediante gobernanza deliberativa, rendición de cuentas pública y respeto de los derechos de estudiantes y docentes. El documento de referencia para anclar cualquier política institucional en el consenso internacional.</p>
+        <p data-en>Over 25 Education Ministers adopted a joint declaration in Paris with common priorities: that the conditions of AI integration in education be defined through deliberative governance, public accountability, and respect for student and teacher rights. The reference document for anchoring any institutional policy in international consensus.</p>
+        <a class="leer" href="https://ecuadoruniversitario.com/noticias-universitarias/durante-la-semana-del-aprendizaje-digital-de-la-unesco-los-ministros-de-educacion-reclaman-que-la-educacion-siga-siendo-un-bien-comun-en-la-era-de-la-inteligencia-artificial/" target="_blank" rel="noopener"><span data-es>Leer nota →</span><span data-en>Read article →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Reportaje analítico · Phys.org, septiembre 2026</span>
+        <span class="meta sans" data-en>Analytical report · Phys.org, September 2026</span>
+        <h3 data-es>Qué ganan y qué pierden los estudiantes cuando los chatbots asumen partes de la enseñanza</h3>
+        <h3 data-en>What Students Gain and Lose as AI Chatbots Take Over Parts of University Teaching</h3>
+        <p data-es>El caso de la semana: el «Virtual Peer» de Macquarie University, un chatbot que sustituye parte de las tutorías en línea de dos cursos de psicología. El balance documentado: ganancias en retroalimentación oportuna, práctica y accesibilidad; pérdidas potenciales en conexión humana y en el aprendizaje que ocurre en el intercambio con pares reales. La pregunta que cada programa en línea deberá responder pronto.</p>
+        <p data-en>The week's case: Macquarie University's "Virtual Peer," a chatbot replacing part of the online tutorials in two psychology units. The documented balance: gains in timely feedback, practice, and accessibility; potential losses in human connection and the learning that happens in exchange with real peers. The question every online program will soon have to answer.</p>
+        <a class="leer" href="https://phys.org/news/2026-09-students-gain-ai-chatbots-university.html" target="_blank" rel="noopener"><span data-es>Leer reportaje →</span><span data-en>Read report →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Estudio de métodos mixtos · IJETHE (Springer), 2026</span>
+        <span class="meta sans" data-en>Mixed-methods study · IJETHE (Springer), 2026</span>
+        <h3 data-es>La perspectiva estudiantil sobre los chatbots de IA: un estudio centrado en lo humano</h3>
+        <h3 data-en>Student Perspectives on Generative AI Chatbots: A Human-Centred Study</h3>
+        <p data-es>Estudio de métodos mixtos en el <i>International Journal of Educational Technology in Higher Education</i> sobre cómo los estudiantes experimentan realmente los chatbots: qué valoran (disponibilidad, paciencia, ausencia de juicio), qué desconfían y qué esperan de sus instituciones. Insumo esencial antes de desplegar asistentes de IA en sus cursos.</p>
+        <p data-en>A mixed-methods study in the <i>International Journal of Educational Technology in Higher Education</i> on how students actually experience chatbots: what they value (availability, patience, absence of judgment), what they distrust, and what they expect from their institutions. Essential input before deploying AI assistants in your courses.</p>
+        <a class="leer" href="https://link.springer.com/article/10.1186/s41239-026-00605-w" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Ensayo · EDUCAUSE Review, 2026</span>
+        <span class="meta sans" data-en>Essay · EDUCAUSE Review, 2026</span>
+        <h3 data-es>La universidad, el chatbot y el llamado a una nueva misión para la educación superior</h3>
+        <h3 data-en>The University, the Chatbot, and a Call for a New Mission for Higher Education</h3>
+        <p data-es>El ensayo de fondo del momento: si un chatbot puede entregar contenido y tutoría básica, ¿cuál es la misión de la universidad? La respuesta que propone — formación de juicio, comunidad de indagación, credencialización con integridad — coincide con la agenda que este boletín ha documentado semana a semana. Para la discusión estratégica de su facultad.</p>
+        <p data-en>The moment's think-piece: if a chatbot can deliver content and basic tutoring, what is the university's mission? Its proposed answer — formation of judgment, community of inquiry, credentialing with integrity — matches the agenda this digest has documented week by week. For your college's strategic discussion.</p>
+        <a class="leer" href="https://er.educause.edu/articles/2026/1/the-university-the-chatbot-and-a-call-for-a-new-mission-for-higher-education" target="_blank" rel="noopener"><span data-es>Leer ensayo →</span><span data-en>Read essay →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Guía pedagógica · Stanford Teaching Commons</span>
+        <span class="meta sans" data-en>Pedagogical guide · Stanford Teaching Commons</span>
+        <h3 data-es>Usos pedagógicos de los chatbots de IA: la guía práctica de Stanford</h3>
+        <h3 data-en>Pedagogical Uses of AI Chatbots: Stanford's Practical Guide</h3>
+        <p data-es>Antes de decidir si un chatbot entra a su curso, conviene conocer el repertorio completo de usos pedagógicos documentados: tutor de práctica, simulador de roles (cliente, paciente, entrevistador), generador de contraargumentos, compañero de estudio. La guía de Stanford los recorre con ejemplos y advertencias de diseño para cada uno.</p>
+        <p data-en>Before deciding whether a chatbot enters your course, it helps to know the full repertoire of documented pedagogical uses: practice tutor, role-play simulator (client, patient, interviewer), counterargument generator, study partner. Stanford's guide walks through each with examples and design cautions.</p>
+        <a class="leer" href="https://teachingcommons.stanford.edu/teaching-guides/artificial-intelligence-teaching-guide/exploring-pedagogical-uses-ai-chatbots" target="_blank" rel="noopener"><span data-es>Leer guía →</span><span data-en>Read guide →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Experiencia de implementación · arXiv, 2026</span>
+        <span class="meta sans" data-en>Implementation experience · arXiv, 2026</span>
+        <h3 data-es>Reflexiones de implementar un chatbot de IA en un curso universitario: lo que no dicen los folletos</h3>
+        <h3 data-en>Reflections on Implementing an AI Chatbot in Higher Education: What the Brochures Don't Say</h3>
+        <p data-es>Relato técnico y pedagógico de una implementación real de un chatbot basado en LLM en un curso universitario: el trabajo de curaduría de contenido, los modos de fallo inesperados, los patrones de uso estudiantil y las lecciones de diseño. El complemento aterrizado de las promesas comerciales.</p>
+        <p data-en>A technical and pedagogical account of a real LLM chatbot implementation in a university course: the content curation work, the unexpected failure modes, student usage patterns, and design lessons. The grounded complement to commercial promises.</p>
+        <a class="leer" href="https://arxiv.org/pdf/2603.17773" target="_blank" rel="noopener"><span data-es>Leer documento →</span><span data-en>Read paper →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Crónica · Infobae, 7 de septiembre de 2026 (en español)</span>
+        <span class="meta sans" data-en>Chronicle · Infobae, September 7, 2026 (in Spanish)</span>
+        <h3 data-es>La Semana del Aprendizaje Digital: la educación en tiempos de inteligencia artificial</h3>
+        <h3 data-en>Digital Learning Week: Education in Times of Artificial Intelligence</h3>
+        <p data-es>Crónica en español del evento insignia de la UNESCO (más de 1,500 participantes en París y miles en línea): los «hechos» que la evidencia ya estableció, las «fricciones» que la IA genera en los sistemas educativos, y las «fronteras» emergentes — de la IA de interés público a la soberanía digital y los enfoques comunitarios. El panorama global en una lectura.</p>
+        <p data-en>A Spanish-language chronicle of UNESCO's flagship event (over 1,500 participants in Paris and thousands online): the "facts" evidence has established, the "frictions" AI generates in education systems, and the emerging "frontiers" — from public interest AI to digital sovereignty and community-led approaches. The global picture in one reading.</p>
+        <a class="leer" href="https://www.infobae.com/educacion/2026/09/07/semana-del-aprendizaje-digital-la-educacion-en-tiempos-de-inteligencia-artificial/" target="_blank" rel="noopener"><span data-es>Leer crónica →</span><span data-en>Read chronicle →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Investigación arbitrada · U. of Phoenix, 2026</span>
+        <span class="meta sans" data-en>Peer-reviewed research · U. of Phoenix, 2026</span>
+        <h3 data-es>Actitudes de estudiantes graduados hacia los chatbots de IA: nueva evidencia arbitrada</h3>
+        <h3 data-en>Graduate Students' Attitudes Toward AI Chatbots: New Peer-Reviewed Evidence</h3>
+        <p data-es>Investigación del College of Doctoral Studies de la University of Phoenix sobre las actitudes de estudiantes graduados hacia los chatbots y su uso reportado de ChatGPT. Relevante para programas de maestría y doctorado: el estudiante graduado usa la IA con metas y ansiedades distintas a las del subgraduado — y la política del programa debe reconocerlo.</p>
+        <p data-en>Research from the University of Phoenix College of Doctoral Studies on graduate students' attitudes toward chatbots and their reported ChatGPT use. Relevant for master's and doctoral programs: graduate students use AI with different goals and anxieties than undergraduates — and program policy should recognize it.</p>
+        <a class="leer" href="https://www.phoenix.edu/press-release/ai-chatbots-in-higher-education.html" target="_blank" rel="noopener"><span data-es>Leer investigación →</span><span data-en>Read research →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Panorama institucional · Ohio State University, 2026</span>
+        <span class="meta sans" data-en>Institutional overview · Ohio State University, 2026</span>
+        <h3 data-es>El auge de los chatbots en la educación superior: enseñanza, aprendizaje y apoyo estudiantil</h3>
+        <h3 data-en>The Rise of Chatbots in Higher Education: Teaching, Learning, and Student Support</h3>
+        <p data-es>La Oficina de Educación a Distancia de Ohio State mapea los tres frentes donde los chatbots ya operan: apoyo a la enseñanza, acompañamiento del aprendizaje y servicios estudiantiles (orientación, retención, trámites). Útil para distinguir dónde el chatbot añade acceso y dónde arriesga sustituir relaciones que importan.</p>
+        <p data-en>Ohio State's Office of Distance Education maps the three fronts where chatbots already operate: teaching support, learning companionship, and student services (advising, retention, administrative help). Useful for distinguishing where chatbots add access and where they risk replacing relationships that matter.</p>
+        <a class="leer" href="https://ascode.osu.edu/news/rise-chatbots-higher-education-transforming-teaching-learning-and-student-support" target="_blank" rel="noopener"><span data-es>Leer panorama →</span><span data-en>Read overview →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Noticia del sector · Pursuit, septiembre 2026</span>
+        <span class="meta sans" data-en>Sector news · Pursuit, September 2026</span>
+        <h3 data-es>Leicester despliega Copilot para 25,000 personas — con capacitación digital obligatoria</h3>
+        <h3 data-en>Leicester Rolls Out Copilot to 25,000 People — With Mandatory Digital Skills Training</h3>
+        <p data-es>La Universidad de Leicester se convierte en una de las primeras del Reino Unido en desplegar Microsoft 365 Copilot para toda su comunidad (21,000 estudiantes y 4,000 empleados) desde septiembre de 2026 — y el detalle que importa: el acceso viene emparejado con capacitación obligatoria en destrezas digitales. El patrón «acceso condicionado a formación» que documentamos en agosto se consolida como estándar.</p>
+        <p data-en>The University of Leicester becomes one of the UK's first to deploy Microsoft 365 Copilot to its entire community (21,000 students, 4,000 staff) starting September 2026 — and the detail that matters: access comes paired with mandatory digital skills training. The "training-conditioned access" pattern we documented in August is consolidating as the standard.</p>
+        <a class="leer" href="https://www.pursuit.us/news/ai-in-education-news-policies-innovations" target="_blank" rel="noopener"><span data-es>Leer noticia →</span><span data-en>Read article →</span></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- GUÍAS POR NIVEL -->
+  <section id="niveles">
+    <h2 data-es>Guías por nivel de adopción</h2>
+    <h2 data-en>Guides by Adoption Level</h2>
+    <div class="nivel">
+      <div class="card">
+        <h3 data-es>🌱 Principiante — Ponga a la IA en el rol correcto</h3>
+        <h3 data-en>🌱 Beginner — Cast AI in the Right Role</h3>
+        <ul>
+          <li data-es>Antes de dejar que un chatbot «enseñe», pruébelo como simulador: un cliente difícil en mercadeo, un entrevistado en investigación, un inversionista escéptico en finanzas. La guía de Stanford (en las lecturas) trae el repertorio completo.</li>
+          <li data-en>Before letting a chatbot "teach," try it as a simulator: a difficult client in marketing, an interviewee in research methods, a skeptical investor in finance. Stanford's guide (in the readings) has the full repertoire.</li>
+          <li data-es>Adopte la cláusula de su disciplina: las nuevas <a href="#materiales">cláusulas por disciplina de negocios</a> traen lenguaje listo para contabilidad, finanzas, mercadeo, gerencia, economía y analítica.</li>
+          <li data-en>Adopt your discipline's clause: the new <a href="#materiales">business-discipline clauses</a> offer ready language for accounting, finance, marketing, management, economics, and analytics.</li>
+          <li data-es>La lección de Macquarie en una línea: el chatbot puede dar práctica y retroalimentación oportuna; no puede dar la conexión humana donde ocurre buena parte del aprendizaje. Delegue lo primero, nunca lo segundo.</li>
+          <li data-en>The Macquarie lesson in one line: chatbots can provide practice and timely feedback; they cannot provide the human connection where much learning happens. Delegate the former, never the latter.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌿 Intermedio — Mida la alfabetización, no asuma que existe</h3>
+        <h3 data-en>🌿 Intermediate — Measure Literacy, Don't Assume It</h3>
+        <ul>
+          <li data-es>Aplique la nueva <a href="#materiales">rúbrica de alfabetización en IA</a> a un artefacto de su curso este semestre. El perfil típico — fuerte en uso, débil en evaluación crítica — le dirá exactamente qué enseñar.</li>
+          <li data-en>Apply the new <a href="#materiales">AI literacy rubric</a> to one artifact in your course this semester. The typical profile — strong on use, weak on critical evaluation — will tell you exactly what to teach.</li>
+          <li data-es>Si su institución evalúa desplegar un asistente de IA, exija el dato del estudio de implementación (en las lecturas): la curaduría de contenido y los modos de fallo, no la demostración comercial.</li>
+          <li data-en>If your institution is evaluating an AI assistant, demand the implementation-study data (in the readings): content curation and failure modes, not the sales demo.</li>
+          <li data-es>Consulte la perspectiva estudiantil antes de decidir: el estudio de IJETHE documenta qué valoran y qué desconfían los estudiantes de los chatbots — despliegue contra esas expectativas, no contra las suyas.</li>
+          <li data-en>Consult the student perspective before deciding: the IJETHE study documents what students value and distrust in chatbots — deploy against their expectations, not yours.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌳 Avanzado — Ancle su política en el consenso internacional</h3>
+        <h3 data-en>🌳 Advanced — Anchor Your Policy in International Consensus</h3>
+        <ul>
+          <li data-es>Use la Declaración Ministerial de la UNESCO como marco de legitimidad para su política institucional: gobernanza deliberativa, rendición de cuentas pública y derechos de estudiantes y docentes son criterios citables ante cualquier junta.</li>
+          <li data-en>Use UNESCO's Ministerial Declaration as a legitimacy frame for institutional policy: deliberative governance, public accountability, and student and teacher rights are citable criteria before any board.</li>
+          <li data-es>Compare su institución con el dato regional de IESALC (87% de adopción en 200 IES de 19 países): ¿en cuántas áreas de actividad usa IA su campus, y cuáles carecen de gobernanza?</li>
+          <li data-en>Benchmark your institution against IESALC's regional figure (87% adoption across 200 institutions in 19 countries): in how many activity areas does your campus use AI, and which lack governance?</li>
+          <li data-es>Para el trabajo de comité, estrene la <a href="#materiales">guía de prompts para diseño curricular y acreditación</a> — del mapeo I/R/M a la preparación de la visita.</li>
+          <li data-en>For committee work, put the new <a href="#materiales">curriculum design and accreditation prompt guide</a> to use — from I/R/M mapping to visit preparation.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos" class="recursos">
+    <h2 data-es>Recursos para el docente</h2>
+    <h2 data-en>Faculty Resources</h2>
+    <ul>
+      <li>
+        <b data-es>Curso gratuito de la UNESCO: «Educar en tiempos de inteligencia artificial» (en español)</b>
+        <b data-en>Free UNESCO course: "Educating in Times of AI" (in Spanish)</b> —
+        <span data-es>Curso abierto en la plataforma Open Learning de la UNESCO sobre ciudadanía digital y educación en la era de la IA — apto para desarrollo profesional docente y como referencia para cursos propios: </span>
+        <span data-en>An open course on UNESCO's Open Learning platform on digital citizenship and education in the AI era — suitable for faculty professional development and as a reference for your own courses: </span>
+        <a href="https://openlearning.unesco.org/courses/course-v1:UNESCO+ED-004+2026_T1_ESP/about" target="_blank" rel="noopener">UNESCO Open Learning</a>
+      </li>
+      <li>
+        <b data-es>Semana del Aprendizaje Digital 2026 (grabaciones y documentos)</b>
+        <b data-en>Digital Learning Week 2026 (recordings and documents)</b> —
+        <span data-es>La página oficial del evento insignia de la UNESCO, con acceso a sesiones, la Declaración Ministerial y los materiales de «Hechos | Fricciones | Fronteras»: </span>
+        <span data-en>The official page of UNESCO's flagship event, with access to sessions, the Ministerial Declaration, and the "Facts | Frictions | Frontiers" materials: </span>
+        <a href="https://www.unesco.org/en/weeks/digital-learning" target="_blank" rel="noopener">UNESCO</a>
+      </li>
+      <li>
+        <b data-es>Colección viva: IA aplicada a la educación superior (Springer)</b>
+        <b data-en>Living collection: AI applications in higher education (Springer)</b> —
+        <span data-es>El portal temático de Springer Nature con los artículos y descubrimientos más recientes del campo, útil para vigilancia académica continua: </span>
+        <span data-en>Springer Nature's subject portal with the field's latest articles and discoveries, useful for ongoing academic monitoring: </span>
+        <a href="https://link.springer.com/subjects/artificial-intelligence-applications-in-higher-education" target="_blank" rel="noopener">Springer Link</a>
+      </li>
+      <li>
+        <span class="prox" data-es>Nuevo</span><span class="prox" data-en>New</span> —
+        <span data-es>Ya está disponible la sección de <a href="#materiales"><b>Materiales descargables</b></a>: plantilla de cláusulas de IA para prontuarios, rúbrica de uso responsable y guía de prompts para docentes.</span>
+        <span data-en>The <a href="#materiales"><b>Downloadable Materials</b></a> section is now live: AI syllabus clause template, responsible-use rubric, and faculty prompt guide.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- MATERIALES DESCARGABLES -->
+  <section id="materiales">
+    <h2 data-es>Materiales descargables</h2>
+    <h2 data-en>Downloadable Materials</h2>
+    <p style="margin-bottom:1rem">
+      <span data-es>Documentos en formato Word (.docx), listos para adaptar a su curso. Elaborados por este boletín y alineados con la evidencia y las mejores prácticas recogidas en nuestras ediciones.</span>
+      <span data-en>Word documents (.docx), ready to adapt to your course. Produced by this digest and aligned with the evidence and best practices covered in our issues.</span>
+    </p>
+    <div class="grid">
+      <article class="card">
+        <span class="meta sans" data-es>Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>Template · Word (.docx)</span>
+        <h3 data-es>📄 Cláusulas de IA para prontuarios</h3>
+        <h3 data-en>📄 AI Clauses for Syllabi</h3>
+        <p data-es>Cuatro niveles de política de IA con lenguaje listo para copiar al prontuario (alineados con la estructura de prontuarios de la PUCPR), la declaración de uso modelo para el estudiante y la tabla de etiquetado evaluación por evaluación.</p>
+        <p data-en>Four AI policy tiers with copy-ready syllabus language (aligned with PUCPR's syllabus structure), a model student disclosure statement, and the per-assessment labeling table.</p>
+        <a class="leer" href="materiales/clausulas-ia-prontuario-pucpr.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>Rubric · Word (.docx)</span>
+        <h3 data-es>📋 Rúbrica de uso responsable de la IA</h3>
+        <h3 data-en>📋 Responsible AI Use Rubric</h3>
+        <p data-es>Rúbrica analítica de cuatro criterios (transparencia, verificación crítica, autoría del razonamiento y uso ético) con cuatro niveles de desempeño, notas de aplicación para el docente y alineación con la taxonomía de Bloom.</p>
+        <p data-en>An analytic rubric with four criteria (transparency, critical verification, authorship of reasoning, ethical use) across four performance levels, with instructor application notes and Bloom's taxonomy alignment.</p>
+        <a class="leer" href="materiales/rubrica-uso-responsable-ia.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>Guide · Word (.docx)</span>
+        <h3 data-es>💬 Guía de prompts para docentes</h3>
+        <h3 data-en>💬 Prompt Guide for Faculty</h3>
+        <p data-es>Siete instrucciones modelo para la preparación de cursos —objetivos según Bloom, bancos de preguntas, rúbricas, casos contextualizados en Puerto Rico, retroalimentación, analogías y rediseño de tareas resilientes a la IA— con cuatro principios de uso y precauciones éticas.</p>
+        <p data-en>Seven model prompts for course preparation —Bloom-aligned objectives, question banks, rubrics, Puerto Rico-contextualized cases, feedback, analogies, and AI-resilient task redesign— with four usage principles and ethical cautions.</p>
+        <a class="leer" href="materiales/guia-prompts-docentes.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Template · Word (.docx)</span>
+        <h3 data-es>🎓 Cláusulas de IA para cursos graduados y en línea</h3>
+        <h3 data-en>🎓 AI Clauses for Graduate and Online Courses</h3>
+        <p data-es>Complemento de la plantilla general: cláusulas modelo para cursos graduados, cursos a distancia (verificación por diseño, no por vigilancia) y supervisión de tesis y disertaciones, con tabla de niveles por tipo de actividad graduada.</p>
+        <p data-en>A complement to the general template: model clauses for graduate courses, distance courses (verification by design, not surveillance), and thesis/dissertation supervision, with a tier table by graduate activity type.</p>
+        <a class="leer" href="materiales/clausulas-ia-cursos-graduados.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Rubric · Word (.docx)</span>
+        <h3 data-es>🎤 Rúbrica de defensa oral y documentación de proceso</h3>
+        <h3 data-en>🎤 Oral Defense and Process Documentation Rubric</h3>
+        <p data-es>Para evaluar el razonamiento demostrable: cuatro criterios (dominio del contenido, justificación de decisiones, respuesta a preguntas imprevistas, documentación de proceso), protocolo de defensa de 5-10 minutos y banco de preguntas imprevistas adaptables.</p>
+        <p data-en>For assessing demonstrable reasoning: four criteria (content mastery, decision justification, response to unscripted questions, process documentation), a 5-10 minute defense protocol, and an adaptable bank of unscripted questions.</p>
+        <a class="leer" href="materiales/rubrica-defensa-oral-proceso.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Guide · Word (.docx)</span>
+        <h3 data-es>🎒 Guía de prompts para estudiantes</h3>
+        <h3 data-en>🎒 Prompt Guide for Students</h3>
+        <p data-es>Para compartir directamente con sus estudiantes: seis prompts que enseñan a usar la IA para aprender más — modo tutor socrático, autoevaluación pre-examen, retroalimentación sin reescritura, verificación, preparación de defensas orales — y la lista de lo que no conviene pedir.</p>
+        <p data-en>To share directly with your students: six prompts that teach using AI to learn more — Socratic tutor mode, pre-exam self-assessment, feedback without rewriting, verification, oral defense preparation — plus the list of what not to ask for.</p>
+        <a class="leer" href="materiales/guia-prompts-estudiantes.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Plantilla · HTML (abre en Word)</span>
+        <span class="meta sans" data-en>New · Template · HTML (opens in Word)</span>
+        <h3 data-es>💼 Cláusulas de IA por disciplina de negocios</h3>
+        <h3 data-en>💼 AI Clauses by Business Discipline</h3>
+        <p data-es>Cláusulas específicas para contabilidad, finanzas, mercadeo, gerencia y RRHH, economía, y estadística y analítica — cada una anclada en la destreza profesional que el curso protege, con tabla resumen para el prontuario.</p>
+        <p data-en>Discipline-specific clauses for accounting, finance, marketing, management and HR, economics, and statistics and analytics — each anchored in the professional skill the course protects, with a summary table for the syllabus.</p>
+        <a class="leer" href="materiales/clausulas-ia-disciplinas-negocios.html" target="_blank"><span data-es>Abrir plantilla ↓</span><span data-en>Open template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · HTML (abre en Word)</span>
+        <span class="meta sans" data-en>New · Rubric · HTML (opens in Word)</span>
+        <h3 data-es>🧭 Rúbrica de alfabetización en IA del estudiante</h3>
+        <h3 data-en>🧭 Student AI Literacy Rubric</h3>
+        <p data-es>Evalúa la alfabetización en IA como competencia de programa: comprensión conceptual, uso estratégico, evaluación crítica y ética digital. Incluye notas para usarla como medida directa en ciclos de Assurance of Learning y su alineación con AACSB.</p>
+        <p data-en>Assesses AI literacy as a program competency: conceptual understanding, strategic use, critical evaluation, and digital ethics. Includes notes for using it as a direct measure in Assurance of Learning cycles and its AACSB alignment.</p>
+        <a class="leer" href="materiales/rubrica-alfabetizacion-ia.html" target="_blank"><span data-es>Abrir rúbrica ↓</span><span data-en>Open rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · HTML (abre en Word)</span>
+        <span class="meta sans" data-en>New · Guide · HTML (opens in Word)</span>
+        <h3 data-es>🏛️ Guía de prompts para diseño curricular y acreditación</h3>
+        <h3 data-en>🏛️ Prompt Guide for Curriculum Design and Accreditation</h3>
+        <p data-es>Para decanos y comités: siete instrucciones modelo para mapeo curricular I/R/M, Learning Goals, instrumentos de avalúo, análisis de brechas (closing the loop), actualización de cursos, micro-credenciales y preparación de visitas de acreditación.</p>
+        <p data-en>For deans and committees: seven model prompts for I/R/M curriculum mapping, Learning Goals, assessment instruments, gap analysis (closing the loop), course updates, micro-credentials, and accreditation visit preparation.</p>
+        <a class="leer" href="materiales/guia-prompts-diseno-curricular.html" target="_blank"><span data-es>Abrir guía ↓</span><span data-en>Open guide ↓</span></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- POLÍTICAS -->
+  <section id="politicas">
+    <h2 data-es>Políticas y marcos institucionales</h2>
+    <h2 data-en>Policies and Institutional Frameworks</h2>
+    <div class="acerca">
+      <p data-es><b>La gobernanza deliberativa deja de ser opcional.</b> La Declaración Ministerial adoptada en París por más de 25 ministros de Educación fija un estándar que las instituciones de la región no podrán ignorar: las condiciones de integración de la IA en la educación deben definirse mediante gobernanza <i>deliberativa</i> — con voz real de docentes y estudiantes —, rendición de cuentas pública y respeto de derechos. El dato de IESALC le da urgencia al estándar: con el 87% de las instituciones de América Latina y el Caribe ya usando IA en al menos un área, la mayoría de la adopción regional ocurrió antes de que existieran esos mecanismos deliberativos — el orden inverso al que la Declaración prescribe. Para los cuerpos directivos, la agenda que se desprende tiene tres piezas verificables: un mecanismo permanente de consulta a docentes y estudiantes sobre decisiones de IA (no encuestas post-hoc, sino voz previa a la decisión); un registro público de qué sistemas de IA usa la institución, en qué áreas y con qué salvaguardas — la forma mínima de rendición de cuentas; y la revisión de contratos con proveedores a la luz de los derechos que la Declaración protege, empezando por los datos estudiantiles. El modelo de despliegue de Leicester — acceso masivo emparejado con formación obligatoria — muestra cómo se ve la implementación cuando estos principios se toman en serio.</p>
+      <p data-en><b>Deliberative governance stops being optional.</b> The Ministerial Declaration adopted in Paris by over 25 Education Ministers sets a standard institutions in our region will not be able to ignore: the conditions of AI integration in education must be defined through <i>deliberative</i> governance — with real faculty and student voice —, public accountability, and respect for rights. The IESALC figure gives the standard urgency: with 87% of Latin American and Caribbean institutions already using AI in at least one area, most regional adoption happened before those deliberative mechanisms existed — the reverse of the order the Declaration prescribes. For governing bodies, the resulting agenda has three verifiable pieces: a standing mechanism for consulting faculty and students on AI decisions (not post-hoc surveys, but voice before the decision); a public registry of which AI systems the institution uses, in which areas, with what safeguards — the minimum form of accountability; and review of vendor contracts in light of the rights the Declaration protects, starting with student data. Leicester's deployment model — mass access paired with mandatory training — shows what implementation looks like when these principles are taken seriously.</p>
+      <p style="margin-top:.7rem">
+        <a class="leer sans" href="https://ecuadoruniversitario.com/noticias-universitarias/la-semana-del-aprendizaje-digital-de-la-unesco-marcara-la-adopcion-de-una-declaracion-ministerial/" target="_blank" rel="noopener"><span data-es>La Declaración Ministerial →</span><span data-en>The Ministerial Declaration →</span></a> &nbsp;·&nbsp;
+        <a class="leer sans" href="https://www.unesco.org/en/weeks/digital-learning" target="_blank" rel="noopener"><span data-es>Semana del Aprendizaje Digital →</span><span data-en>Digital Learning Week →</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- BOLETÍN -->
+  <section id="boletin" class="boletin">
+    <h2 data-es>Reciba la edición semanal</h2>
+    <h2 data-en>Get the Weekly Issue</h2>
+    <p data-es>Una edición nueva cada semana con los artículos y estudios más pertinentes para su docencia.</p>
+    <p data-en>A new issue every week with the most relevant articles and studies for your teaching.</p>
+    <form action="mailto:edrodrios@pucpr.edu" method="post" enctype="text/plain" class="sans">
+      <input type="email" name="email" placeholder="su.correo@universidad.edu" required>
+      <button type="submit" data-es>Suscribirme</button>
+      <button type="submit" data-en style="display:none">Subscribe</button>
+    </form>
+    <p class="sans" style="font-size:.75rem;margin-top:.7rem;color:#9db4ca">
+      <span data-es>Nota: este formulario abre su cliente de correo. Para suscripción automatizada, considere integrar Mailchimp o Buttondown.</span>
+      <span data-en>Note: this form opens your email client. For automated subscriptions, consider integrating Mailchimp or Buttondown.</span>
+    </p>
+  </section>
+
+  <!-- ACERCA -->
+  <section id="acerca">
+    <h2 data-es>Acerca de este sitio</h2>
+    <h2 data-en>About This Site</h2>
+    <div class="acerca">
+      <p data-es><b>La Inteligencia Artificial en el Salón de Clases</b> es un boletín semanal curado por el Dr. Edgar Rodríguez, Decano del Colegio de Administración de Empresas de la Pontificia Universidad Católica de Puerto Rico y profesor de economía, estadística y métodos de investigación desde 1996. Su misión es acercar al profesorado universitario la mejor evidencia disponible sobre la integración de la inteligencia artificial en la enseñanza, con rigor académico y aplicabilidad práctica.</p>
+      <p data-en><b>AI in the Classroom</b> is a weekly digest curated by Dr. Edgar Rodríguez, Dean of the College of Business Administration at the Pontificia Universidad Católica de Puerto Rico and professor of economics, statistics, and research methods since 1996. Its mission is to bring university faculty the best available evidence on integrating artificial intelligence into teaching, with academic rigor and practical applicability.</p>
+      <p style="margin-top:.7rem" data-es><b>Contacto y colaboraciones:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — se aceptan propuestas de artículos invitados, casos docentes y solicitudes de talleres.</p>
+      <p style="margin-top:.7rem" data-en><b>Contact and collaborations:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — guest article proposals, teaching cases, and workshop requests are welcome.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><span data-es>© 2026 La Inteligencia Artificial en el Salón de Clases · Publicación semanal · Ponce, Puerto Rico</span><span data-en>© 2026 AI in the Classroom · Weekly publication · Ponce, Puerto Rico</span></p>
+  <p style="margin-top:.3rem">
+    <span data-es>Ediciones anteriores: <a href="ediciones/edicion-01.html">No. 1 — 13 de julio</a> · <a href="ediciones/edicion-02.html">No. 2 — 20 de julio</a> · <a href="ediciones/edicion-03.html">No. 3 — 27 de julio</a> · <a href="ediciones/edicion-04.html">No. 4 — 3 de agosto</a> · <a href="ediciones/edicion-05.html">No. 5 — 10 de agosto</a> · <a href="ediciones/edicion-06.html">No. 6 — 17 de agosto</a> · <a href="ediciones/edicion-07.html">No. 7 — 24 de agosto</a> · <a href="ediciones/edicion-08.html">No. 8 — 31 de agosto</a> · <a href="ediciones/edicion-09.html">No. 9 — 7 de septiembre de 2026</a></span>
+    <span data-en>Past issues: <a href="ediciones/edicion-01.html">No. 1 — July 13</a> · <a href="ediciones/edicion-02.html">No. 2 — July 20</a> · <a href="ediciones/edicion-03.html">No. 3 — July 27</a> · <a href="ediciones/edicion-04.html">No. 4 — August 3</a> · <a href="ediciones/edicion-05.html">No. 5 — August 10</a> · <a href="ediciones/edicion-06.html">No. 6 — August 17</a> · <a href="ediciones/edicion-07.html">No. 7 — August 24</a> · <a href="ediciones/edicion-08.html">No. 8 — August 31</a> · <a href="ediciones/edicion-09.html">No. 9 — September 7, 2026</a></span>
+  </p>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.className = l === 'en' ? 'en' : '';
+  document.documentElement.lang = l;
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  try{localStorage.setItem('lang', l);}catch(e){}
+  document.querySelectorAll('.boletin button[data-es]').forEach(b=>b.style.display = l==='es' ? '' : 'none');
+  document.querySelectorAll('.boletin button[data-en]').forEach(b=>b.style.display = l==='en' ? '' : 'none');
+}
+try{ var saved = localStorage.getItem('lang'); if(saved==='en') setLang('en'); }catch(e){}
+</script>
+
+</body>
+</html>
