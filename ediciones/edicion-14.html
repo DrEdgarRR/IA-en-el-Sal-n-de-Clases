@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Inteligencia Artificial en el Salón de Clases | AI in the Classroom — Boletín semanal para profesores universitarios</title>
+<meta name="description" content="Artículos y estudios semanales sobre la aplicación de la inteligencia artificial en el salón de clases universitario. Weekly articles and studies on AI in the university classroom.">
+<meta property="og:title" content="La Inteligencia Artificial en el Salón de Clases | AI in the Classroom">
+<meta property="og:description" content="Boletín semanal de artículos y estudios sobre IA en la docencia universitaria.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --azul:#1b3a5c; --azul-claro:#2e5f8a; --dorado:#c9a227; --crema:#faf7f0;
+    --gris:#4a4a4a; --gris-claro:#e8e4da; --blanco:#ffffff; --verde:#2e6e4e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;color:var(--gris);background:var(--crema);line-height:1.65}
+  .sans{font-family:'Segoe UI',Helvetica,Arial,sans-serif}
+
+  header{background:var(--azul);color:var(--blanco);padding:0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:.6rem 1.2rem;font-size:.85rem}
+  .topbar .edition{font-family:'Segoe UI',sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#d8e2ee}
+  .lang-toggle button{background:transparent;border:1px solid #7d9bb8;color:#d8e2ee;padding:.25rem .7rem;cursor:pointer;font-size:.8rem;font-family:'Segoe UI',sans-serif}
+  .lang-toggle button.active{background:var(--dorado);border-color:var(--dorado);color:var(--azul);font-weight:700}
+  .masthead{text-align:center;padding:1.6rem 1rem 1.2rem;border-top:1px solid #33547a;border-bottom:3px solid var(--dorado)}
+  .masthead h1{font-size:2.4rem;letter-spacing:.02em;font-weight:400}
+  .masthead h1 b{color:var(--dorado)}
+  .masthead p{color:#c7d5e4;font-style:italic;margin-top:.35rem;font-size:1.02rem}
+
+  nav{background:var(--azul-claro)}
+  nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;max-width:1100px;margin:0 auto}
+  nav a{display:block;color:#eaf1f8;text-decoration:none;padding:.65rem 1rem;font-family:'Segoe UI',sans-serif;font-size:.88rem;letter-spacing:.03em}
+  nav a:hover{background:var(--azul)}
+
+  main{max-width:1100px;margin:0 auto;padding:2rem 1.2rem}
+  section{margin-bottom:3rem}
+  h2{font-size:1.55rem;color:var(--azul);border-bottom:2px solid var(--dorado);padding-bottom:.35rem;margin-bottom:1.2rem;font-weight:400}
+  h3{color:var(--azul);font-size:1.12rem;margin-bottom:.4rem}
+
+  .hero{background:var(--blanco);border:1px solid var(--gris-claro);border-left:5px solid var(--dorado);padding:1.6rem 1.8rem;margin-bottom:2.4rem}
+  .hero .kicker{font-family:'Segoe UI',sans-serif;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dorado);font-weight:700}
+  .hero h2{border:none;font-size:1.8rem;margin:.3rem 0 .6rem;padding:0}
+  .hero p{margin-bottom:.8rem}
+  .tag{display:inline-block;font-family:'Segoe UI',sans-serif;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;background:var(--azul);color:#fff;padding:.15rem .55rem;border-radius:2px;margin-right:.4rem;margin-bottom:.4rem}
+  .tag.verde{background:var(--verde)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+  .card{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.3rem 1.4rem;display:flex;flex-direction:column}
+  .card .meta{font-family:'Segoe UI',sans-serif;font-size:.75rem;color:#8a8a8a;margin-bottom:.5rem}
+  .card p{font-size:.95rem;flex-grow:1}
+  .card a.leer{font-family:'Segoe UI',sans-serif;font-size:.85rem;color:var(--azul-claro);text-decoration:none;font-weight:600;margin-top:.8rem}
+  .card a.leer:hover{color:var(--dorado)}
+
+  .nivel{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+  .nivel .card{border-top:4px solid var(--azul-claro)}
+  .nivel .card:nth-child(2){border-top-color:var(--dorado)}
+  .nivel .card:nth-child(3){border-top-color:var(--verde)}
+  .nivel ul{padding-left:1.1rem;font-size:.92rem;margin-top:.4rem}
+  .nivel li{margin-bottom:.35rem}
+
+  .recursos ul{list-style:none}
+  .recursos li{background:var(--blanco);border:1px solid var(--gris-claro);padding:.9rem 1.2rem;margin-bottom:.6rem}
+  .recursos li b{color:var(--azul)}
+  .recursos li span.prox{font-family:'Segoe UI',sans-serif;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dorado);font-weight:700}
+
+  .boletin{background:var(--azul);color:#eaf1f8;padding:2rem;text-align:center}
+  .boletin h2{color:#fff;border-color:var(--dorado)}
+  .boletin form{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+  .boletin input{padding:.6rem .9rem;border:none;min-width:260px;font-size:.95rem}
+  .boletin button{background:var(--dorado);border:none;color:var(--azul);font-weight:700;padding:.6rem 1.4rem;cursor:pointer;font-family:'Segoe UI',sans-serif}
+
+  .acerca{background:var(--blanco);border:1px solid var(--gris-claro);padding:1.6rem 1.8rem}
+
+  footer{background:#12283f;color:#9db4ca;text-align:center;padding:1.6rem 1rem;font-size:.85rem;font-family:'Segoe UI',sans-serif}
+  footer a{color:var(--dorado);text-decoration:none}
+
+  [data-en]{display:none}
+  html.en [data-es]{display:none}
+  html.en [data-en]{display:revert}
+
+  @media(max-width:600px){.masthead h1{font-size:1.6rem}.hero h2{font-size:1.35rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <span class="edition" id="edicion">
+      <span data-es>Edición No. 14 · Semana del 12 de octubre de 2026</span>
+      <span data-en>Issue No. 14 · Week of October 12, 2026</span>
+    </span>
+    <span class="lang-toggle">
+      <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </span>
+  </div>
+  <div class="masthead">
+    <h1><span data-es>La Inteligencia Artificial en el <b>Salón de Clases</b></span><span data-en>AI in the <b>Classroom</b></span></h1>
+    <p data-es>Artículos y estudios semanales sobre inteligencia artificial en la docencia universitaria</p>
+    <p data-en>Weekly articles and studies on artificial intelligence in university teaching</p>
+  </div>
+  <nav class="sans">
+    <ul>
+      <li><a href="#destacado"><span data-es>Inicio</span><span data-en>Home</span></a></li>
+      <li><a href="#articulos"><span data-es>Artículos</span><span data-en>Articles</span></a></li>
+      <li><a href="#niveles"><span data-es>Guías por nivel</span><span data-en>Adoption Guides</span></a></li>
+      <li><a href="#recursos"><span data-es>Recursos</span><span data-en>Resources</span></a></li>
+      <li><a href="#materiales"><span data-es>Materiales</span><span data-en>Materials</span></a></li>
+      <li><a href="#politicas"><span data-es>Políticas</span><span data-en>Policies</span></a></li>
+      <li><a href="#boletin"><span data-es>Boletín</span><span data-en>Newsletter</span></a></li>
+      <li><a href="#acerca"><span data-es>Acerca de</span><span data-en>About</span></a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ARTÍCULO DESTACADO -->
+  <section id="destacado">
+    <div class="hero">
+      <span class="kicker" data-es>Artículo destacado de la semana</span>
+      <span class="kicker" data-en>Featured article of the week</span>
+      <h2 data-es>El profesor como autor: las reglas de divulgación de IA en la publicación académica ya convergieron — y el 14% de los resúmenes de PubMed muestra por qué urgen</h2>
+      <h2 data-en>The Professor as Author: AI Disclosure Rules in Academic Publishing Have Converged — and 14% of PubMed Abstracts Show Why They're Urgent</h2>
+      <p data-es>Esta edición mira al profesorado en su otro rol: el de autor. Las reglas editoriales convergieron en 2026 — la IA no puede ser autora (consenso COPE/ICMJE adoptado por todas las grandes editoriales) y el uso que exceda la corrección de estilo debe declararse, con especificidades por editorial: Nature exige la declaración en Métodos con modelo, versión, fecha y propósito; Elsevier usa declaración dedicada y prohíbe la IA en el arbitraje; Wiley distingue la herramienta (permitida con divulgación) del contenido intelectual sustantivo (no permitido). La urgencia la pone el dato: según el análisis reseñado esta semana, cerca del 14% de los 1.5 millones de resúmenes biomédicos indexados en PubMed en 2024 ya contenía señales de texto generado por IA — y las políticas no están conteniendo la ola. El panorama hispanoamericano preocupa en la otra dirección: de 43 revistas de educación y ciencias de la información analizadas, solo el 12% tenía políticas de IA y apenas el 5% indicaba cómo citar las herramientas. Para el claustro que publica — y para las universidades que editan revistas — los tres materiales nuevos de esta edición empiezan por el más urgente: la declaración de uso de IA para publicaciones y ponencias, con modelos listos conforme al consenso editorial.</p>
+      <p data-en>This issue looks at faculty in their other role: author. Editorial rules converged in 2026 — AI cannot be an author (the COPE/ICMJE consensus adopted by all major publishers) and use beyond copyediting must be disclosed, with publisher specifics: Nature requires the declaration in Methods with model, version, date, and purpose; Elsevier uses a dedicated declaration and bans AI in peer review; Wiley distinguishes the tool (allowed with disclosure) from substantive intellectual content (not allowed). The data supply the urgency: per the analysis covered this week, about 14% of the 1.5 million biomedical abstracts indexed in PubMed in 2024 already showed signs of LLM-generated text — and policies aren't containing the surge. The Ibero-American picture worries in the opposite direction: of 43 education and information science journals analyzed, only 12% had AI policies and barely 5% said how to cite the tools. For publishing faculty — and universities that edit journals — this issue's three new materials start with the most urgent: the AI use declaration for publications and presentations, with ready models aligned to the editorial consensus.</p>
+      <span class="tag" data-es>Publicación académica</span><span class="tag" data-en>Academic publishing</span>
+      <span class="tag verde" data-es>Divulgación y transparencia</span><span class="tag verde" data-en>Disclosure and transparency</span>
+      <p style="margin-top:.8rem"><a class="leer sans" href="https://arxiv.org/pdf/2512.06705" target="_blank" rel="noopener"><span data-es>Leer el análisis de políticas →</span><span data-en>Read the policy analysis →</span></a></p>
+    </div>
+  </section>
+
+  <!-- ARTÍCULOS DE LA SEMANA -->
+  <section id="articulos">
+    <h2 data-es>Artículos y estudios de esta semana</h2>
+    <h2 data-en>This Week's Articles and Studies</h2>
+    <div class="grid">
+
+      <article class="card">
+        <span class="meta sans" data-es>Guía de referencia · CASRAI, 2026</span>
+        <span class="meta sans" data-en>Reference guide · CASRAI, 2026</span>
+        <h3 data-es>Las reglas de divulgación de IA por editorial: Nature, Elsevier, Wiley, PLOS y Science, lado a lado</h3>
+        <h3 data-en>AI Disclosure Rules by Publisher: Nature, Elsevier, Wiley, PLOS, and Science, Side by Side</h3>
+        <p data-es>El panorama comparado de las reglas 2026: qué exige cada editorial, dónde va la declaración (Métodos, sección dedicada, carta) y qué prohíben — desde las figuras generadas (Nature) hasta la IA en el arbitraje (Elsevier). Verifique siempre contra las instrucciones vigentes de su revista destino, pero este mapa le dice qué buscar.</p>
+        <p data-en>The comparative map of 2026 rules: what each publisher requires, where the declaration goes (Methods, dedicated section, cover letter), and what they prohibit — from generated figures (Nature) to AI in peer review (Elsevier). Always verify against your target journal's current instructions, but this map tells you what to look for.</p>
+        <a class="leer" href="https://casrai.org/news/genai-disclosure-scholarly-authorship-2026" target="_blank" rel="noopener"><span data-es>Leer guía →</span><span data-en>Read guide →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Estudio hispanoamericano · Investigación Bibliotecológica (SciELO), 2026 (en español)</span>
+        <span class="meta sans" data-en>Ibero-American study · Investigación Bibliotecológica (SciELO), 2026 (in Spanish)</span>
+        <h3 data-es>Solo el 12% de las revistas hispanoamericanas analizadas tiene política de IA</h3>
+        <h3 data-en>Only 12% of Analyzed Ibero-American Journals Have an AI Policy</h3>
+        <p data-es>El estudio que mide la brecha regional: de 43 revistas de biblioteconomía, ciencias de la información y educación de Hispanoamérica, solo el 12% tenía políticas sobre IA generativa y apenas el 5% indicaba cómo citar las herramientas. Para las universidades de la región que editan revistas — incluidas las nuestras — una lista de tareas en forma de estudio.</p>
+        <p data-en>The study measuring the regional gap: of 43 Ibero-American library science, information science, and education journals, only 12% had generative AI policies and barely 5% indicated how to cite the tools. For universities in the region that edit journals — including ours — a to-do list in study form.</p>
+        <a class="leer" href="https://www.scielo.org.mx/scielo.php?script=sci_arttext&amp;pid=S2448-57052025000200275" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Documento de investigación · arXiv, 2026</span>
+        <span class="meta sans" data-en>Research paper · arXiv, 2026</span>
+        <h3 data-es>La carrera armamentista del arbitraje: manuscritos de IA contra revisores con IA</h3>
+        <h3 data-en>The Peer-Review Arms Race: AI Manuscripts Versus AI Reviewers</h3>
+        <p data-es>El análisis más inquietante de la semana: la publicación académica entra en una coevolución adversarial — autores que usan IA para producir manuscritos y editoriales que usan IA para detectarlos y arbitrarlos, cada lado mejorando contra el otro. La conclusión para el investigador de a pie: la transparencia voluntaria es la única posición que no pierde en esta carrera.</p>
+        <p data-en>The week's most unsettling analysis: scholarly publishing enters adversarial co-evolution — authors using AI to produce manuscripts and publishers using AI to detect and review them, each side improving against the other. The takeaway for the working researcher: voluntary transparency is the only position that doesn't lose this race.</p>
+        <a class="leer" href="https://arxiv.org/pdf/2609.07713" target="_blank" rel="noopener"><span data-es>Leer documento →</span><span data-en>Read paper →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Estudio empírico · arXiv, 2026</span>
+        <span class="meta sans" data-en>Empirical study · arXiv, 2026</span>
+        <h3 data-es>Qué se declara y qué no: expectativas y prácticas de divulgación de IA entre investigadores</h3>
+        <h3 data-en>What Gets Disclosed and What Doesn't: AI Disclosure Expectations and Practices Among Researchers</h3>
+        <p data-es>Estudio empírico sobre la brecha entre la norma y la práctica en la investigación de ciencias de la computación: qué usos de IA los investigadores consideran declarables, cuáles declaran realmente y dónde están los desacuerdos. El hallazgo transferible a toda disciplina: sin definiciones operativas de «uso sustantivo», cada autor traza la línea donde le conviene.</p>
+        <p data-en>An empirical study of the gap between norm and practice in CS research: which AI uses researchers consider declarable, which they actually declare, and where the disagreements lie. The finding transferable to every discipline: without operational definitions of "substantive use," each author draws the line where it suits them.</p>
+        <a class="leer" href="https://arxiv.org/pdf/2608.23271" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Editorial · Revista Conrado (Cuba), 2026 (en español)</span>
+        <span class="meta sans" data-en>Editorial · Revista Conrado (Cuba), 2026 (in Spanish)</span>
+        <h3 data-es>La integridad académica en la era de la IA generativa: desafíos editoriales y prácticas responsables</h3>
+        <h3 data-en>Academic Integrity in the Generative AI Era: Editorial Challenges and Responsible Practices</h3>
+        <p data-es>La mirada editorial en español: este editorial examina los desafíos de las revistas ante la IA generativa y cita una revisión de UNESCO según la cual cerca del 70% de las revistas científicas ya tendría políticas de IA — dato que contrasta con el 12% hispanoamericano y que conviene verificar en la fuente. La tensión entre ambas cifras es, en sí misma, el estado del campo.</p>
+        <p data-en>The editorial view in Spanish: this editorial examines journals' challenges with generative AI and cites a UNESCO review putting AI policies at about 70% of scientific journals — a figure contrasting with the 12% Ibero-American number and worth verifying at the source. The tension between the two figures is, in itself, the state of the field.</p>
+        <a class="leer" href="https://conrado.ucf.edu.cu/index.php/conrado/article/view/5607" target="_blank" rel="noopener"><span data-es>Leer editorial →</span><span data-en>Read editorial →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Análisis documental · RED (U. de Barcelona), 2026 (en español)</span>
+        <span class="meta sans" data-en>Documentary analysis · RED (U. of Barcelona), 2026 (in Spanish)</span>
+        <h3 data-es>De la recomendación a la gobernanza: ¿cuán operativas son las políticas universitarias de IA?</h3>
+        <h3 data-en>From Recommendation to Governance: How Operational Are University AI Policies?</h3>
+        <p data-es>Análisis documental de las políticas de IA de las universidades españolas con una conclusión que viaja bien: la existencia del documento no garantiza gobernanza operativa. Muchas políticas se quedan en recomendación sin mecanismos de implementación, responsables ni calendario. La vara con la que medir la política de su propia institución.</p>
+        <p data-en>A documentary analysis of Spanish universities' AI policies with a conclusion that travels well: the document's existence doesn't guarantee operational governance. Many policies remain recommendations without implementation mechanisms, owners, or timelines. The yardstick for measuring your own institution's policy.</p>
+        <a class="leer" href="https://revistes.ub.edu/index.php/RED/article/view/56450" target="_blank" rel="noopener"><span data-es>Leer análisis →</span><span data-en>Read analysis →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Análisis jurídico · RED (U. de Barcelona), 2026 (en español)</span>
+        <span class="meta sans" data-en>Legal analysis · RED (U. of Barcelona), 2026 (in Spanish)</span>
+        <h3 data-es>¿Cuándo obliga una política universitaria de IA? Naturaleza jurídica y ámbito de aplicación</h3>
+        <h3 data-en>When Does a University AI Policy Bind? Legal Nature and Scope</h3>
+        <p data-es>El artículo de la <i>Revista de Educación y Derecho</i> responde la pregunta que los decanos rara vez se hacen a tiempo: una política de IA solo es vinculante si está aprobada por el órgano competente, publicada, comunicada a sus destinatarios e integrada al marco normativo interno. Lo demás — orientaciones, guías, códigos voluntarios — educa pero no obliga. Clave antes de sancionar a nadie.</p>
+        <p data-en>The <i>Revista de Educación y Derecho</i> article answers the question deans rarely ask in time: an AI policy binds only if approved by the competent body, published, communicated to its addressees, and integrated into the internal regulatory framework. Everything else — guidance, guides, voluntary codes — educates but doesn't bind. Essential before sanctioning anyone.</p>
+        <a class="leer" href="https://revistes.ub.edu/index.php/RED/article/view/56404" target="_blank" rel="noopener"><span data-es>Leer artículo →</span><span data-en>Read article →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Ensayo · Minding the Campus / Martin Center, 5 de octubre de 2026</span>
+        <span class="meta sans" data-en>Essay · Minding the Campus / Martin Center, October 5, 2026</span>
+        <h3 data-es>La educación superior sigue improvisando con la IA — abre la serie de ensayos de octubre</h3>
+        <h3 data-en>Higher Ed Is Still Muddling Through AI — The October Essay Series Opens</h3>
+        <p data-es>El ensayo que abre la serie conjunta de tres semanas: las universidades necesitan una estrategia de IA que cubra docencia, investigación y operaciones, no solo la preparación estudiantil. Los datos que cita condensan el momento: el 95% del profesorado encuestado (UNC) quiere egresados que usen IA con inteligencia y ética, el 90% de los estudiantes ya la usa — y el 58% duda de tener las destrezas para usarla bien.</p>
+        <p data-en>The essay opening the three-week joint series: universities need an AI strategy covering teaching, research, and operations, not just student readiness. Its figures condense the moment: 95% of surveyed faculty (UNC) want graduates who use AI intelligently and ethically, 90% of students already use it — and 58% doubt they have the skills to use it well.</p>
+        <a class="leer" href="https://mindingthecampus.org/2026/10/05/higher-ed-is-still-muddling-through-ai/" target="_blank" rel="noopener"><span data-es>Leer ensayo →</span><span data-en>Read essay →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Estudio longitudinal · arXiv, 2026</span>
+        <span class="meta sans" data-en>Longitudinal study · arXiv, 2026</span>
+        <h3 data-es>De la novedad a la normalización: cómo cambiaron las percepciones de la IA entre 2024 y 2026</h3>
+        <h3 data-en>From Novelty to Normalisation: How AI Perceptions Changed from 2024 to 2026</h3>
+        <p data-es>El seguimiento longitudinal de percepciones universitarias trae un vuelco notable: el personal docente reporta hoy MÁS experiencia con IA que los estudiantes — una inversión del estereotipo de 2023. Los autores sugieren que la mayor exposición está haciendo al profesorado más receptivo. La brecha generacional de la IA, al parecer, tenía fecha de caducidad.</p>
+        <p data-en>Longitudinal tracking of university perceptions delivers a notable reversal: teaching staff now report MORE AI experience than students — inverting the 2023 stereotype. The authors suggest greater exposure is making faculty more accepting. The AI generation gap, it seems, had an expiration date.</p>
+        <a class="leer" href="https://arxiv.org/pdf/2607.16223" target="_blank" rel="noopener"><span data-es>Leer estudio →</span><span data-en>Read study →</span></a>
+      </article>
+
+      <article class="card">
+        <span class="meta sans" data-es>Guía práctica · Thesify, 2026</span>
+        <span class="meta sans" data-en>Practical guide · Thesify, 2026</span>
+        <h3 data-es>Políticas de IA en la publicación académica: la guía 2026 con lista de cotejo</h3>
+        <h3 data-en>AI Policies in Academic Publishing: The 2026 Guide with Checklist</h3>
+        <p data-es>La guía operativa para el autor: distingue la edición básica (gramática, estilo) del uso que debe declararse (contenido, estructura, interpretación, traducción, análisis, figuras), recorre las políticas por editorial y cierra con la lista de cotejo pre-envío. Complemento directo de nuestra nueva declaración descargable.</p>
+        <p data-en>The working author's guide: it distinguishes basic editing (grammar, style) from use that must be disclosed (content, structure, interpretation, translation, analysis, figures), walks through publisher policies, and closes with a pre-submission checklist. A direct complement to our new downloadable declaration.</p>
+        <a class="leer" href="https://www.thesify.ai/blog/ai-policies-academic-publishing-2026" target="_blank" rel="noopener"><span data-es>Leer guía →</span><span data-en>Read guide →</span></a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- GUÍAS POR NIVEL -->
+  <section id="niveles">
+    <h2 data-es>Guías por nivel de adopción</h2>
+    <h2 data-en>Guides by Adoption Level</h2>
+    <div class="nivel">
+      <div class="card">
+        <h3 data-es>🌱 Principiante — Ordene su casa de autor antes del próximo envío</h3>
+        <h3 data-en>🌱 Beginner — Put Your Author House in Order Before the Next Submission</h3>
+        <ul>
+          <li data-es>Antes de someter su próximo manuscrito, lea la política de IA vigente de la revista destino — cambian cada año y la ubicación de la declaración (Métodos, sección dedicada, carta) varía por editorial.</li>
+          <li data-en>Before your next submission, read the target journal's current AI policy — they change yearly and the declaration's location (Methods, dedicated section, cover letter) varies by publisher.</li>
+          <li data-es>Adopte la nueva <a href="#materiales">declaración de uso de IA para publicaciones</a>: cuatro modelos listos, de la corrección de estilo a la declaración negativa. Declarar bien es más fácil que explicar después.</li>
+          <li data-en>Adopt the new <a href="#materiales">AI use declaration for publications</a>: four ready models, from copyediting to the negative declaration. Declaring well is easier than explaining later.</li>
+          <li data-es>La regla sin excepción: nunca use IA para arbitrar manuscritos ajenos — el manuscrito es confidencial y subirlo a una herramienta viola esa confidencialidad.</li>
+          <li data-en>The no-exception rule: never use AI to review others' manuscripts — the manuscript is confidential and uploading it violates that confidentiality.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌿 Intermedio — Evalúe el prompt, no solo el producto</h3>
+        <h3 data-en>🌿 Intermediate — Grade the Prompt, Not Just the Product</h3>
+        <ul>
+          <li data-es>Asigne un portafolio de prompts (tres del mes, con salidas, iteraciones y reflexión) y evalúelo con la nueva <a href="#materiales">rúbrica de calidad de prompts</a>: el prompt hace visible cómo piensa el estudiante sobre su propio aprendizaje.</li>
+          <li data-en>Assign a prompt portfolio (three from the month, with outputs, iterations, and reflection) and grade it with the new <a href="#materiales">prompt quality rubric</a>: prompts make visible how students think about their own learning.</li>
+          <li data-es>El ejercicio comparativo de mayor retorno: el mismo objetivo con un prompt vago y uno refinado — que el estudiante explique por qué las salidas difieren tanto.</li>
+          <li data-en>The highest-return comparative exercise: the same goal with a vague and a refined prompt — have students explain why the outputs differ so much.</li>
+          <li data-es>Pruebe una simulación esta semana con la <a href="#materiales">guía de casos y simulaciones</a>: la IA como cliente difícil o comité ejecutivo. Reserve el tiempo de debrief — la simulación sin debrief es solo un juego.</li>
+          <li data-en>Try a simulation this week with the <a href="#materiales">cases and simulations guide</a>: AI as difficult client or executive committee. Protect debrief time — simulation without debrief is just a game.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-es>🌳 Avanzado — Haga que su política realmente obligue</h3>
+        <h3 data-en>🌳 Advanced — Make Your Policy Actually Bind</h3>
+        <ul>
+          <li data-es>Aplique la prueba jurídica de la semana a su política de IA: ¿está aprobada por el órgano competente, publicada, comunicada e integrada al marco normativo? Si no cumple las cuatro, educa pero no obliga — y no sostiene una sanción.</li>
+          <li data-en>Apply the week's legal test to your AI policy: approved by the competent body, published, communicated, and integrated into the regulatory framework? If it fails any of the four, it educates but doesn't bind — and won't sustain a sanction.</li>
+          <li data-es>Si su universidad edita revistas, el dato del 12% es su agenda: adopte política editorial de IA en cada una — qué se declara, cómo se cita la herramienta y qué está prohibido en el arbitraje.</li>
+          <li data-en>If your university edits journals, the 12% figure is your agenda: adopt an AI editorial policy in each — what gets declared, how the tool is cited, and what's prohibited in review.</li>
+          <li data-es>Complete las tres capas de transparencia institucional: aula (declaración del estudiante), posgrado (declaración de tesis) y claustro (declaración en publicaciones). La coherencia entre capas es lo que legitima la exigencia.</li>
+          <li data-en>Complete the three layers of institutional transparency: classroom (student declaration), graduate school (thesis declaration), and faculty (publication declaration). Cross-layer coherence is what legitimizes the demand.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos" class="recursos">
+    <h2 data-es>Recursos para el docente</h2>
+    <h2 data-en>Faculty Resources</h2>
+    <ul>
+      <li>
+        <b data-es>Ejemplos de políticas editoriales de IA en revistas hispanas</b>
+        <b data-en>Examples of AI editorial policies in Spanish-language journals</b> —
+        <span data-es>Dos políticas publicadas, útiles como modelo para las revistas de su institución: </span>
+        <span data-en>Two published policies, useful as models for your institution's journals: </span>
+        <a href="https://revistascientificas.us.es/index.php/Ambitos/politica_IA" target="_blank" rel="noopener">Ámbitos (U. de Sevilla)</a> ·
+        <a href="https://ojs.docentes20.com/index.php/revista-docentes20/IA" target="_blank" rel="noopener">Docentes 2.0</a>
+      </li>
+      <li>
+        <b data-es>Propuesta de atribución facetada de texto asistido por IA</b>
+        <b data-en>Faceted proposal for attributing AI-assisted text</b> —
+        <span data-es>Un marco académico para declarar el uso de IA con precisión graduada (qué hizo la IA, en qué parte, con cuánta intervención humana) — adelanto de hacia dónde puede evolucionar la divulgación: </span>
+        <span data-en>An academic framework for declaring AI use with graduated precision (what AI did, where, with how much human intervention) — a preview of where disclosure may evolve: </span>
+        <a href="https://arxiv.org/pdf/2604.25346" target="_blank" rel="noopener">arXiv</a>
+      </li>
+      <li>
+        <b data-es>Conferencia AAC&amp;U sobre IA y educación superior (28-30 de octubre)</b>
+        <b data-en>AAC&amp;U Conference on AI and Higher Education (October 28-30)</b> —
+        <span data-es>En Atlanta y en línea, centrada en adopción responsable y gobernanza institucional — oportunidad de desarrollo profesional este mismo mes: </span>
+        <span data-en>In Atlanta and online, focused on responsible adoption and institutional governance — a professional development opportunity this very month: </span>
+        <a href="https://www.aacu.org/event/conference-on-ai-and-higher-education" target="_blank" rel="noopener">AAC&amp;U</a>
+      </li>
+      <li>
+        <span class="prox" data-es>Nuevo</span><span class="prox" data-en>New</span> —
+        <span data-es>Ya está disponible la sección de <a href="#materiales"><b>Materiales descargables</b></a>: plantilla de cláusulas de IA para prontuarios, rúbrica de uso responsable y guía de prompts para docentes.</span>
+        <span data-en>The <a href="#materiales"><b>Downloadable Materials</b></a> section is now live: AI syllabus clause template, responsible-use rubric, and faculty prompt guide.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- MATERIALES DESCARGABLES -->
+  <section id="materiales">
+    <h2 data-es>Materiales descargables</h2>
+    <h2 data-en>Downloadable Materials</h2>
+    <p style="margin-bottom:1rem">
+      <span data-es>Documentos en formato Word (.docx), listos para adaptar a su curso. Elaborados por este boletín y alineados con la evidencia y las mejores prácticas recogidas en nuestras ediciones.</span>
+      <span data-en>Word documents (.docx), ready to adapt to your course. Produced by this digest and aligned with the evidence and best practices covered in our issues.</span>
+    </p>
+    <div class="grid">
+      <article class="card">
+        <span class="meta sans" data-es>Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>Template · Word (.docx)</span>
+        <h3 data-es>📄 Cláusulas de IA para prontuarios</h3>
+        <h3 data-en>📄 AI Clauses for Syllabi</h3>
+        <p data-es>Cuatro niveles de política de IA con lenguaje listo para copiar al prontuario (alineados con la estructura de prontuarios de la PUCPR), la declaración de uso modelo para el estudiante y la tabla de etiquetado evaluación por evaluación.</p>
+        <p data-en>Four AI policy tiers with copy-ready syllabus language (aligned with PUCPR's syllabus structure), a model student disclosure statement, and the per-assessment labeling table.</p>
+        <a class="leer" href="clausulas-ia-prontuario-pucpr.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>Rubric · Word (.docx)</span>
+        <h3 data-es>📋 Rúbrica de uso responsable de la IA</h3>
+        <h3 data-en>📋 Responsible AI Use Rubric</h3>
+        <p data-es>Rúbrica analítica de cuatro criterios (transparencia, verificación crítica, autoría del razonamiento y uso ético) con cuatro niveles de desempeño, notas de aplicación para el docente y alineación con la taxonomía de Bloom.</p>
+        <p data-en>An analytic rubric with four criteria (transparency, critical verification, authorship of reasoning, ethical use) across four performance levels, with instructor application notes and Bloom's taxonomy alignment.</p>
+        <a class="leer" href="rubrica-uso-responsable-ia.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>Guide · Word (.docx)</span>
+        <h3 data-es>💬 Guía de prompts para docentes</h3>
+        <h3 data-en>💬 Prompt Guide for Faculty</h3>
+        <p data-es>Siete instrucciones modelo para la preparación de cursos —objetivos según Bloom, bancos de preguntas, rúbricas, casos contextualizados en Puerto Rico, retroalimentación, analogías y rediseño de tareas resilientes a la IA— con cuatro principios de uso y precauciones éticas.</p>
+        <p data-en>Seven model prompts for course preparation —Bloom-aligned objectives, question banks, rubrics, Puerto Rico-contextualized cases, feedback, analogies, and AI-resilient task redesign— with four usage principles and ethical cautions.</p>
+        <a class="leer" href="guia-prompts-docentes.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Template · Word (.docx)</span>
+        <h3 data-es>🎓 Cláusulas de IA para cursos graduados y en línea</h3>
+        <h3 data-en>🎓 AI Clauses for Graduate and Online Courses</h3>
+        <p data-es>Complemento de la plantilla general: cláusulas modelo para cursos graduados, cursos a distancia (verificación por diseño, no por vigilancia) y supervisión de tesis y disertaciones, con tabla de niveles por tipo de actividad graduada.</p>
+        <p data-en>A complement to the general template: model clauses for graduate courses, distance courses (verification by design, not surveillance), and thesis/dissertation supervision, with a tier table by graduate activity type.</p>
+        <a class="leer" href="clausulas-ia-cursos-graduados.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Rubric · Word (.docx)</span>
+        <h3 data-es>🎤 Rúbrica de defensa oral y documentación de proceso</h3>
+        <h3 data-en>🎤 Oral Defense and Process Documentation Rubric</h3>
+        <p data-es>Para evaluar el razonamiento demostrable: cuatro criterios (dominio del contenido, justificación de decisiones, respuesta a preguntas imprevistas, documentación de proceso), protocolo de defensa de 5-10 minutos y banco de preguntas imprevistas adaptables.</p>
+        <p data-en>For assessing demonstrable reasoning: four criteria (content mastery, decision justification, response to unscripted questions, process documentation), a 5-10 minute defense protocol, and an adaptable bank of unscripted questions.</p>
+        <a class="leer" href="rubrica-defensa-oral-proceso.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Guide · Word (.docx)</span>
+        <h3 data-es>🎒 Guía de prompts para estudiantes</h3>
+        <h3 data-en>🎒 Prompt Guide for Students</h3>
+        <p data-es>Para compartir directamente con sus estudiantes: seis prompts que enseñan a usar la IA para aprender más — modo tutor socrático, autoevaluación pre-examen, retroalimentación sin reescritura, verificación, preparación de defensas orales — y la lista de lo que no conviene pedir.</p>
+        <p data-en>To share directly with your students: six prompts that teach using AI to learn more — Socratic tutor mode, pre-exam self-assessment, feedback without rewriting, verification, oral defense preparation — plus the list of what not to ask for.</p>
+        <a class="leer" href="guia-prompts-estudiantes.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>Template · Word (.docx)</span>
+        <h3 data-es>💼 Cláusulas de IA por disciplina de negocios</h3>
+        <h3 data-en>💼 AI Clauses by Business Discipline</h3>
+        <p data-es>Cláusulas específicas para contabilidad, finanzas, mercadeo, gerencia y RRHH, economía, y estadística y analítica — cada una anclada en la destreza profesional que el curso protege, con tabla resumen para el prontuario.</p>
+        <p data-en>Discipline-specific clauses for accounting, finance, marketing, management and HR, economics, and statistics and analytics — each anchored in the professional skill the course protects, with a summary table for the syllabus.</p>
+        <a class="leer" href="clausulas-ia-disciplinas-negocios.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>Rubric · Word (.docx)</span>
+        <h3 data-es>🧭 Rúbrica de alfabetización en IA del estudiante</h3>
+        <h3 data-en>🧭 Student AI Literacy Rubric</h3>
+        <p data-es>Evalúa la alfabetización en IA como competencia de programa: comprensión conceptual, uso estratégico, evaluación crítica y ética digital. Incluye notas para usarla como medida directa en ciclos de Assurance of Learning y su alineación con AACSB.</p>
+        <p data-en>Assesses AI literacy as a program competency: conceptual understanding, strategic use, critical evaluation, and digital ethics. Includes notes for using it as a direct measure in Assurance of Learning cycles and its AACSB alignment.</p>
+        <a class="leer" href="rubrica-alfabetizacion-ia.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>Guide · Word (.docx)</span>
+        <h3 data-es>🏛️ Guía de prompts para diseño curricular y acreditación</h3>
+        <h3 data-en>🏛️ Prompt Guide for Curriculum Design and Accreditation</h3>
+        <p data-es>Para decanos y comités: siete instrucciones modelo para mapeo curricular I/R/M, Learning Goals, instrumentos de avalúo, análisis de brechas (closing the loop), actualización de cursos, micro-credenciales y preparación de visitas de acreditación.</p>
+        <p data-en>For deans and committees: seven model prompts for I/R/M curriculum mapping, Learning Goals, assessment instruments, gap analysis (closing the loop), course updates, micro-credentials, and accreditation visit preparation.</p>
+        <a class="leer" href="guia-prompts-diseno-curricular.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Plantilla · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Template · Word (.docx)</span>
+        <h3 data-es>🏢 Política de IA para departamentos y facultades</h3>
+        <h3 data-en>🏢 AI Policy for Departments and Colleges</h3>
+        <p data-es>Plantilla operativa de política departamental: principios rectores, comité deliberativo con voz docente y estudiantil, tabla de ámbitos regulados (docencia, avalúo, datos, investigación, formación), registro público de sistemas y ciclo de revisión anual.</p>
+        <p data-en>An operational departmental policy template: guiding principles, a deliberative committee with faculty and student voice, a regulated-domains table (teaching, assessment, data, research, training), a public systems registry, and an annual review cycle.</p>
+        <a class="leer" href="politica-ia-departamento.docx" download><span data-es>Descargar plantilla ↓</span><span data-en>Download template ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Rubric · Word (.docx)</span>
+        <h3 data-es>👥 Rúbrica de trabajo colaborativo con IA en equipos</h3>
+        <h3 data-en>👥 Team AI-Collaboration Rubric</h3>
+        <p data-es>Para proyectos grupales: evalúa la división del trabajo humano-IA documentada en bitácora, la contribución individual verificable, la verificación cruzada (quien genera no verifica) y la declaración grupal. Con notas de aplicación y mini-defensas individuales.</p>
+        <p data-en>For group projects: assesses the log-documented human-AI division of labor, verifiable individual contribution, cross-verification (whoever generates doesn't verify), and the group declaration. With application notes and individual mini-defenses.</p>
+        <a class="leer" href="rubrica-colaboracion-ia-equipos.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Guide · Word (.docx)</span>
+        <h3 data-es>🔬 Guía de prompts para investigación y supervisión de tesis</h3>
+        <h3 data-en>🔬 Prompt Guide for Research and Thesis Supervision</h3>
+        <p data-es>Para directores de tesis y comités: seis instrucciones modelo (retroalimentación de capítulos, interrogar el método, síntesis con verificación, simulacro de defensa, consistencia entre capítulos) más el modelo de Declaración de Tecnologías de Asistencia y los límites éticos del director.</p>
+        <p data-en>For thesis advisors and committees: six model prompts (chapter feedback, interrogating method, verified synthesis, defense simulation, cross-chapter consistency) plus the Assistive Technologies Declaration model and the advisor's ethical limits.</p>
+        <a class="leer" href="guia-prompts-investigacion-tesis.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guion · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Script · Word (.docx)</span>
+        <h3 data-es>🗣️ Guion del primer día: la política de IA como conversación</h3>
+        <h3 data-en>🗣️ First-Day Script: The AI Policy as a Conversation</h3>
+        <p data-es>Agenda de 20 minutos para presentar su política de IA el primer día de clases: normalizar con datos, escuchar la norma estudiantil, justificar cada regla, calibrar con ejemplos aceptable/inaceptable y cerrar el contrato del semestre. Con banco de preguntas y actividad adaptable.</p>
+        <p data-en>A 20-minute agenda for presenting your AI policy on day one: normalize with data, listen to the student norm, justify each rule, calibrate with acceptable/unacceptable examples, and close the semester's contract. With a question bank and adaptable activity.</p>
+        <a class="leer" href="guion-primer-dia-ia.docx" download><span data-es>Descargar guion ↓</span><span data-en>Download script ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Rubric · Word (.docx)</span>
+        <h3 data-es>🔍 Rúbrica de análisis crítico de salidas de IA</h3>
+        <h3 data-en>🔍 AI-Output Critical Analysis Rubric</h3>
+        <p data-es>Para la tarea que ejercita el eslabón más débil de la alfabetización en IA: el estudiante evalúa, verifica y mejora una salida generada por IA. Cuatro criterios (detección de errores, verificación con fuentes, sesgos y omisiones, mejora fundamentada) con variantes por disciplina de negocios.</p>
+        <p data-en>For the assignment exercising AI literacy's weakest link: students evaluate, verify, and improve an AI-generated output. Four criteria (error detection, source verification, bias and omissions, grounded improvement) with business-discipline variants.</p>
+        <a class="leer" href="rubrica-analisis-critico-ia.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Guide · Word (.docx)</span>
+        <h3 data-es>📊 Guía de prompts para enseñar estadística y analítica</h3>
+        <h3 data-en>📊 Prompt Guide for Teaching Statistics and Analytics</h3>
+        <p data-es>Para docentes de métodos cuantitativos: generar datasets ficticios con «defectos» sembrados, ejercicios de interpretación de salidas, escenarios de falacias estadísticas, tutor de R/Python/Excel para estudiantes, diagnóstico dialogado de supuestos y traducción de resultados a decisiones gerenciales.</p>
+        <p data-en>For quantitative methods instructors: generating fictional datasets with seeded "flaws," output-interpretation exercises, statistical fallacy scenarios, an R/Python/Excel tutor for students, dialogued assumption diagnosis, and translating results into managerial decisions.</p>
+        <a class="leer" href="guia-prompts-estadistica-analitica.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Declaración · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Declaration · Word (.docx)</span>
+        <h3 data-es>📝 Declaración de uso de IA para publicaciones y ponencias</h3>
+        <h3 data-en>📝 AI Use Declaration for Publications and Presentations</h3>
+        <p data-es>Para el profesorado como autor: cuatro modelos de declaración conforme al consenso editorial de 2026 (uso menor, uso sustantivo estilo Métodos, ponencias y declaración negativa), la lista de cotejo pre-envío y las dos reglas que no admiten excepción.</p>
+        <p data-en>For faculty as authors: four declaration models aligned with the 2026 editorial consensus (minor use, Methods-style substantive use, presentations, and the negative declaration), the pre-submission checklist, and the two no-exception rules.</p>
+        <a class="leer" href="declaracion-ia-publicaciones.docx" download><span data-es>Descargar declaración ↓</span><span data-en>Download declaration ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Rúbrica · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Rubric · Word (.docx)</span>
+        <h3 data-es>✍️ Rúbrica de calidad de prompts del estudiante</h3>
+        <h3 data-en>✍️ Student Prompt Quality Rubric</h3>
+        <p data-es>Evalúa la alfabetización en instrucciones a la IA: contexto y especificidad, estructura, iteración y criterio pedagógico de uso. Para portafolios de prompts, bitácoras de tareas con IA permitida y ejercicios dedicados de alfabetización.</p>
+        <p data-en>Assesses AI instruction literacy: context and specificity, structure, iteration, and pedagogical judgment in use. For prompt portfolios, AI-permitted assignment logs, and dedicated literacy exercises.</p>
+        <a class="leer" href="rubrica-calidad-prompts.docx" download><span data-es>Descargar rúbrica ↓</span><span data-en>Download rubric ↓</span></a>
+      </article>
+      <article class="card">
+        <span class="meta sans" data-es>Nuevo · Guía · Word (.docx)</span>
+        <span class="meta sans" data-en>New · Guide · Word (.docx)</span>
+        <h3 data-es>🎭 Guía de prompts para casos y simulaciones de negocio</h3>
+        <h3 data-en>🎭 Prompt Guide for Business Cases and Simulations</h3>
+        <p data-es>Para docentes de administración: generar casos contextualizados en Puerto Rico, juego de roles con la IA como personaje (cliente, inversionista, comité ejecutivo), negociaciones por fases, debrief estructurado y variantes anti-plagio entre secciones.</p>
+        <p data-en>For business faculty: generating Puerto Rico-contextualized cases, role-play with AI as a character (client, investor, executive committee), phased negotiations, structured debriefs, and anti-plagiarism variants across sections.</p>
+        <a class="leer" href="guia-prompts-casos-simulaciones.docx" download><span data-es>Descargar guía ↓</span><span data-en>Download guide ↓</span></a>
+      </article>
+    </div>
+  </section>
+
+  <!-- POLÍTICAS -->
+  <section id="politicas">
+    <h2 data-es>Políticas y marcos institucionales</h2>
+    <h2 data-en>Policies and Institutional Frameworks</h2>
+    <div class="acerca">
+      <p data-es><b>La universidad también es editora — y esa capa de la política de IA está casi vacía.</b> La conversación institucional sobre IA se ha concentrado en el aula, pero esta semana recuerda que la universidad tiene tres roles ante la IA: enseña, supervisa investigación y <i>publica</i>. En ese tercer rol, el vacío regional es medible: solo el 12% de las revistas hispanoamericanas analizadas tiene política de IA, y apenas el 5% dice cómo citar las herramientas — mientras las grandes editoriales ya convergieron en reglas detalladas y la evidencia muestra que la escritura asistida crece más rápido de lo que las políticas contienen. Para las universidades que editan revistas — la mayoría de las nuestras — la agenda es concreta y de bajo costo: adoptar una política editorial de IA por revista (los ejemplos de Sevilla y Docentes 2.0, en los recursos, son adaptables en una tarde), alinearla con el consenso COPE/ICMJE, prohibir explícitamente la IA en el arbitraje, y definir cómo se cita la herramienta. Dos advertencias de la literatura de la semana cierran el círculo: las políticas que se quedan en recomendación no gobiernan (el análisis documental español lo demuestra), y una política solo obliga si está aprobada, publicada y comunicada — la prueba jurídica que vale tanto para la política editorial como para la del aula. La coherencia final es estratégica: la institución que exige declaración al estudiante y al doctorando gana autoridad moral cuando su claustro y sus revistas declaran igual.</p>
+      <p data-en><b>The university is also a publisher — and that layer of AI policy is nearly empty.</b> The institutional AI conversation has centered on the classroom, but this week reminds us the university holds three roles before AI: it teaches, supervises research, and <i>publishes</i>. In that third role the regional gap is measurable: only 12% of analyzed Ibero-American journals have an AI policy, and barely 5% say how to cite the tools — while major publishers have converged on detailed rules and evidence shows AI-assisted writing growing faster than policies contain. For universities that edit journals — most of ours — the agenda is concrete and low-cost: adopt an AI editorial policy per journal (the Sevilla and Docentes 2.0 examples in the resources are adaptable in an afternoon), align it with the COPE/ICMJE consensus, explicitly ban AI in peer review, and define how the tool is cited. Two warnings from the week's literature close the circle: policies that remain recommendations don't govern (the Spanish documentary analysis proves it), and a policy only binds if approved, published, and communicated — the legal test that applies to editorial policy as much as classroom policy. The final coherence is strategic: the institution that requires declarations from students and doctoral candidates gains moral authority when its faculty and journals declare likewise.</p>
+      <p style="margin-top:.7rem">
+        <a class="leer sans" href="https://www.scielo.org.mx/scielo.php?script=sci_arttext&amp;pid=S2448-57052025000200275" target="_blank" rel="noopener"><span data-es>El vacío hispanoamericano (12%) →</span><span data-en>The Ibero-American gap (12%) →</span></a> &nbsp;·&nbsp;
+        <a class="leer sans" href="https://revistes.ub.edu/index.php/RED/article/view/56404" target="_blank" rel="noopener"><span data-es>Cuándo obliga una política →</span><span data-en>When a policy binds →</span></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- BOLETÍN -->
+  <section id="boletin" class="boletin">
+    <h2 data-es>Reciba la edición semanal</h2>
+    <h2 data-en>Get the Weekly Issue</h2>
+    <p data-es>Una edición nueva cada semana con los artículos y estudios más pertinentes para su docencia.</p>
+    <p data-en>A new issue every week with the most relevant articles and studies for your teaching.</p>
+    <form action="mailto:edrodrios@pucpr.edu" method="post" enctype="text/plain" class="sans">
+      <input type="email" name="email" placeholder="su.correo@universidad.edu" required>
+      <button type="submit" data-es>Suscribirme</button>
+      <button type="submit" data-en style="display:none">Subscribe</button>
+    </form>
+    <p class="sans" style="font-size:.75rem;margin-top:.7rem;color:#9db4ca">
+      <span data-es>Nota: este formulario abre su cliente de correo. Para suscripción automatizada, considere integrar Mailchimp o Buttondown.</span>
+      <span data-en>Note: this form opens your email client. For automated subscriptions, consider integrating Mailchimp or Buttondown.</span>
+    </p>
+  </section>
+
+  <!-- ACERCA -->
+  <section id="acerca">
+    <h2 data-es>Acerca de este sitio</h2>
+    <h2 data-en>About This Site</h2>
+    <div class="acerca">
+      <p data-es><b>La Inteligencia Artificial en el Salón de Clases</b> es un boletín semanal curado por el Dr. Edgar Rodríguez, Decano del Colegio de Administración de Empresas de la Pontificia Universidad Católica de Puerto Rico y profesor de economía, estadística y métodos de investigación desde 1996. Su misión es acercar al profesorado universitario la mejor evidencia disponible sobre la integración de la inteligencia artificial en la enseñanza, con rigor académico y aplicabilidad práctica.</p>
+      <p data-en><b>AI in the Classroom</b> is a weekly digest curated by Dr. Edgar Rodríguez, Dean of the College of Business Administration at the Pontificia Universidad Católica de Puerto Rico and professor of economics, statistics, and research methods since 1996. Its mission is to bring university faculty the best available evidence on integrating artificial intelligence into teaching, with academic rigor and practical applicability.</p>
+      <p style="margin-top:.7rem" data-es><b>Contacto y colaboraciones:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — se aceptan propuestas de artículos invitados, casos docentes y solicitudes de talleres.</p>
+      <p style="margin-top:.7rem" data-en><b>Contact and collaborations:</b> <a href="mailto:edrodrios@pucpr.edu">edrodrios@pucpr.edu</a> — guest article proposals, teaching cases, and workshop requests are welcome.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p><span data-es>© 2026 La Inteligencia Artificial en el Salón de Clases · Publicación semanal · Ponce, Puerto Rico</span><span data-en>© 2026 AI in the Classroom · Weekly publication · Ponce, Puerto Rico</span></p>
+  <p style="margin-top:.3rem">
+    <span data-es>Ediciones anteriores: <a href="ediciones/edicion-01.html">No. 1 — 13 de julio</a> · <a href="ediciones/edicion-02.html">No. 2 — 20 de julio</a> · <a href="ediciones/edicion-03.html">No. 3 — 27 de julio</a> · <a href="ediciones/edicion-04.html">No. 4 — 3 de agosto</a> · <a href="ediciones/edicion-05.html">No. 5 — 10 de agosto</a> · <a href="ediciones/edicion-06.html">No. 6 — 17 de agosto</a> · <a href="ediciones/edicion-07.html">No. 7 — 24 de agosto</a> · <a href="ediciones/edicion-08.html">No. 8 — 31 de agosto</a> · <a href="ediciones/edicion-09.html">No. 9 — 7 de septiembre</a> · <a href="ediciones/edicion-10.html">No. 10 — 14 de septiembre</a> · <a href="ediciones/edicion-11.html">No. 11 — 21 de septiembre</a> · <a href="ediciones/edicion-12.html">No. 12 — 28 de septiembre</a> · <a href="ediciones/edicion-13.html">No. 13 — 5 de octubre de 2026</a></span>
+    <span data-en>Past issues: <a href="ediciones/edicion-01.html">No. 1 — July 13</a> · <a href="ediciones/edicion-02.html">No. 2 — July 20</a> · <a href="ediciones/edicion-03.html">No. 3 — July 27</a> · <a href="ediciones/edicion-04.html">No. 4 — August 3</a> · <a href="ediciones/edicion-05.html">No. 5 — August 10</a> · <a href="ediciones/edicion-06.html">No. 6 — August 17</a> · <a href="ediciones/edicion-07.html">No. 7 — August 24</a> · <a href="ediciones/edicion-08.html">No. 8 — August 31</a> · <a href="ediciones/edicion-09.html">No. 9 — September 7</a> · <a href="ediciones/edicion-10.html">No. 10 — September 14</a> · <a href="ediciones/edicion-11.html">No. 11 — September 21</a> · <a href="ediciones/edicion-12.html">No. 12 — September 28</a> · <a href="ediciones/edicion-13.html">No. 13 — October 5, 2026</a></span>
+  </p>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.className = l === 'en' ? 'en' : '';
+  document.documentElement.lang = l;
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  try{localStorage.setItem('lang', l);}catch(e){}
+  document.querySelectorAll('.boletin button[data-es]').forEach(b=>b.style.display = l==='es' ? '' : 'none');
+  document.querySelectorAll('.boletin button[data-en]').forEach(b=>b.style.display = l==='en' ? '' : 'none');
+}
+try{ var saved = localStorage.getItem('lang'); if(saved==='en') setLang('en'); }catch(e){}
+</script>
+
+</body>
+</html>
